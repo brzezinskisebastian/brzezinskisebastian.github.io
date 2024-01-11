@@ -6,23 +6,24 @@
     <title>Moja Strona</title>
     <style>
         body {
-            background-color: #222a25;
+            background-color: #353541;
             margin: 0;
             font-family: Arial, sans-serif;
         }
 
         header {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
+            align-items: center;
             padding: 10px;
-            background-color: #222a25;
+            background-color: #353541;
         }
 
         nav {
             display: flex;
             justify-content: flex-end;
             padding: 10px;
-            background-color: #222a25;
+            background-color: #353541;
         }
 
         nav a {
@@ -56,25 +57,60 @@
         footer {
             text-align: center;
             padding: 10px;
-            background-color: #222a25;
+            background-color: #353541;
             color: white;
+        }
+
+        .hamburger-icon {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+        }
+
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hamburger-icon {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                flex-direction: column;
+                background-color: #353541;
+                padding: 10px;
+            }
+
+            nav.active {
+                display: flex;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <nav>
-            <a href="#">Główna</a>
-            <a href="#">Do pobrania</a>
-            <a href="#">Kontakt</a>
+        <div class="logo">
+            <!-- Tutaj dodaj kod dla logo -->
+        </div>
+        <div class="hamburger-icon" onclick="toggleMenu()">☰</div>
+        <nav class="hamburger-menu">
+            <a href="#" onclick="toggleMenu()">Główna</a>
+            <a href="#" onclick="toggleMenu()">Do pobrania</a>
+            <a href="#" onclick="toggleMenu()">Kontakt</a>
         </nav>
     </header>
 
     <main>
-        <div class="logo">
-            <!-- Tutaj dodaj kod dla logo -->
-        </div>
         <div class="title">
             Tytuł strony
         </div>
@@ -86,6 +122,13 @@
     <footer>
         &copy; 2024 Moja Strona. Wszelkie prawa zastrzeżone.
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav.hamburger-menu');
+            nav.classList.toggle('active');
+        }
+    </script>
 
 </body>
 </html>
