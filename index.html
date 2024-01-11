@@ -63,11 +63,14 @@
         }
 
         .hamburger-icon {
-            display: none;
-            cursor: pointer;
-            font-size: 24px;
-            color: white;
-        }
+    display: none;
+    cursor: pointer;
+    font-size: 36px; /* Zwiększenie rozmiaru ikony hamburgera */
+    color: white;
+    border: 2px solid white; /* Dodanie obramowania */
+    border-radius: 5px; /* Zaokrąglenie krawędzi */
+    padding: 5px; /* Dodanie odstępu od obramowania */
+}
 
         nav a {
             display: block;
@@ -94,7 +97,7 @@
                 width: 100%;
                 position: absolute;
                 top: 60px;
-                right: 0; /* Zmiana pozycji z lewej na prawą stronę */
+                right: 0;
                 flex-direction: column;
                 background-color: #353541;
                 padding: 10px;
@@ -114,7 +117,6 @@
             <a href="#" onclick="toggleMenu()">Do pobrania</a>
             <a href="#" onclick="toggleMenu()">Kontakt</a>
         </nav>
-        margin-bottom: 20px;
     </header>
 
     <main>
