@@ -4,33 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moja Strona</title>
+    <style>
+        body {
+            background-color: #222a25;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+            background-color: #222a25;
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+            background-color: #222a25;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .logo {
+            /* Dodaj styl dla logo */
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .text {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #222a25;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <h1>Witaj na mojej stronie!</h1>
+        <nav>
+            <a href="#">Główna</a>
+            <a href="#">Do pobrania</a>
+            <a href="#">Kontakt</a>
+        </nav>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#">Strona główna</a></li>
-            <li><a href="#">O mnie</a></li>
-            <li><a href="#">Kontakt</a></li>
-        </ul>
-    </nav>
-
-    <section>
-        <h2>O mnie</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu risus id quam tincidunt ullamcorper. Proin at nulla ac augue tincidunt interdum vitae eu elit.</p>
-    </section>
-
-    <section>
-        <h2>Kontakt</h2>
-        <p>Możesz się ze mną skontaktować pod adresem email: <a href="mailto:info@example.com">info@example.com</a></p>
-    </section>
+    <main>
+        <div class="logo">
+            <!-- Tutaj dodaj kod dla logo -->
+        </div>
+        <div class="title">
+            Tytuł strony
+        </div>
+        <div class="text">
+            Twój tekst znajdzie się tutaj. To pole dostosuje się do szerokości ekranu.
+        </div>
+    </main>
 
     <footer>
-        <p>&copy; 2024 Moja Strona. Wszelkie prawa zastrzeżone.</p>
+        &copy; 2024 Moja Strona. Wszelkie prawa zastrzeżone.
     </footer>
 
 </body>
