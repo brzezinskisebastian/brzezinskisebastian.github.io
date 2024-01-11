@@ -68,10 +68,12 @@
             color: white;
         }
 
-        .hamburger-menu {
+        nav a {
+            display: block;
+        }
+
+        nav.active a {
             display: none;
-            flex-direction: column;
-            align-items: flex-end;
         }
 
         @media screen and (max-width: 768px) {
@@ -79,8 +81,15 @@
                 display: block;
             }
 
-            nav {
+            nav a {
                 display: none;
+            }
+
+            nav.active a {
+                display: block;
+            }
+
+            nav {
                 width: 100%;
                 position: absolute;
                 top: 60px;
@@ -88,10 +97,6 @@
                 flex-direction: column;
                 background-color: #353541;
                 padding: 10px;
-            }
-
-            nav.active {
-                display: flex;
             }
         }
     </style>
