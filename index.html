@@ -1,93 +1,136 @@
-<style>
-    body {
-        background-color: #353541;
-        margin: 0;
-        font-family: Arial, sans-serif;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moja Strona</title>
+    <style>
+        body {
+            background-color: #222a25;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
 
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        background-color: #353541;
-    }
-
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        padding: 10px;
-        background-color: #353541;
-    }
-
-    nav a {
-        color: white;
-        text-decoration: none;
-        margin: 0 15px;
-    }
-
-    .logo {
-        /* Dodaj styl dla logo */
-    }
-
-    main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        color: white;
-    }
-
-    .title {
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
-
-    .text {
-        max-width: 800px;
-        text-align: center;
-    }
-
-    footer {
-        text-align: center;
-        padding: 10px;
-        background-color: #353541;
-        color: white;
-    }
-
-    /* Dodane style dla menu hamburgerowego na małych ekranach */
-    .hamburger-icon {
-        display: none;
-        cursor: pointer;
-        font-size: 24px;
-        color: white;
-    }
-
-    .hamburger-menu {
-        display: none;
-        flex-direction: column;
-        align-items: flex-end;
-    }
-
-    @media screen and (max-width: 768px) {
-        .hamburger-icon {
-            display: block;
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #222a25;
         }
 
         nav {
-            display: none;
-            width: 100%;
-            position: absolute;
-            top: 60px;
-            left: 0;
-            flex-direction: column;
-            background-color: #353541;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
             padding: 10px;
+            background-color: #222a25;
         }
 
-        nav.active {
-            display: flex;
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
         }
-    }
-</style>
+
+        .logo {
+            /* Dodaj styl dla logo */
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .text {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #222a25;
+            color: white;
+        }
+
+        /* Dodane style dla menu hamburgerowego na małych ekranach */
+        .hamburger-icon {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+        }
+
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hamburger-icon {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                flex-direction: column;
+                background-color: #222a25;
+                padding: 10px;
+            }
+
+            nav.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <!-- Tutaj dodaj kod dla logo -->
+        </div>
+        <div class="hamburger-icon" onclick="toggleMenu()">☰</div>
+        <nav class="hamburger-menu">
+            <a href="#" onclick="toggleMenu()">Główna</a>
+            <a href="#" onclick="toggleMenu()">Do pobrania</a>
+            <a href="#" onclick="toggleMenu()">Kontakt</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="title">
+            Tytuł strony
+        </div>
+        <div class="text">
+            Twój tekst znajdzie się tutaj. To pole dostosuje się do szerokości ekranu.
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2024 Moja Strona. Wszelkie prawa zastrzeżone.
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav.hamburger-menu');
+            nav.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
