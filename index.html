@@ -17,6 +17,8 @@
             align-items: center;
             padding: 10px;
             background-color: #353541;
+            position: relative; /* Dodane */
+            z-index: 1; /* Dodane */
         }
 
         nav {
@@ -42,6 +44,11 @@
             align-items: center;
             padding: 20px;
             color: white;
+            margin-top: 50px; /* Dostosuj margines górny na potrzeby */
+            /* Poniżej dodane style */
+            box-sizing: border-box;
+            position: relative;
+            z-index: 0;
         }
 
         .title {
@@ -99,6 +106,10 @@
                 flex-direction: column;
                 background-color: #353541;
                 padding: 10px;
+            }
+
+            main {
+                margin-top: 110px; /* Dostosuj margines górny na potrzeby */
             }
         }
     </style>
