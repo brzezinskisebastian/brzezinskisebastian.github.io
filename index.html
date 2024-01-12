@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Montserrat:wght@400;700&family=Roboto:wght@400&family=Lato:wght@400;700&display=swap">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moja Strona</title>
@@ -8,7 +10,8 @@
         body {
             background-color: #353541;
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
+            color: #9B9AA0;
         }
 
         header {
@@ -30,10 +33,19 @@
             color: white;
             text-decoration: none;
             margin: 0 15px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700; /* Pogrubienie tekstu */
+            font-size: 20px; /* Powiększenie czcionki */
+            color: #9B9AA0;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            font-weight: bold; /* Jeszcze bardziej pogrubienie po najechaniu */
         }
 
         .logo {
-            /* Dodaj styl dla logo */
+            /* Tutaj dodaj kod dla logo */
         }
 
         main {
@@ -45,14 +57,47 @@
         }
 
         .title {
-            font-size: 24px;
+            font-size: 35px;
+            margin: 50px 0 10px 0;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: #9B9AA0;
+        }
+
+        .about-me {
+            font-size: 20px;
+            max-width: 700px;
+            text-align: justify;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: #9B9AA0;
+        }
+
+        .about-me p {
             margin-bottom: 10px;
         }
 
-        .text {
-            max-width: 800px;
-            text-align: center;
-            margin-bottom: 20px;
+        .about-me ul {
+            margin-top: 0;
+            padding-left: 20px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #9B9AA0;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            margin-top: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .contact-btn:hover { 
+    background-color: #30303A;
+    padding: 10px 0; 
+    border-radius: 8px; 
         }
 
         footer {
@@ -70,9 +115,26 @@
             background: url('https://brzezinskisebastian.github.io/Menu-icon.png') center/cover;
         }
 
-        nav a {
-            display: block;
-        }
+nav a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    margin: 0 10px; 
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; 
+    font-size: 20px; 
+    color: #9B9AA0;
+    width: 150px; 
+    text-align: center; 
+    line-height: 30px; 
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    font-weight: bold; 
+    background-color: #30303A; 
+    border-radius: 8px; 
+}
 
         nav.active a {
             display: none;
@@ -101,8 +163,11 @@
                 padding: 10px;
             }
         }
+		
+		
     </style>
 </head>
+
 <body>
 
     <header>
@@ -121,16 +186,23 @@
         <div class="title">
             Cześć!
         </div>
- <div class="about-me">
-            <p>Nazywam się [Twoje Imię], jestem ambitnym początkującym programistą gotowym na nowe wyzwania.</p>
-            <p>Moją pasją jest nauka i rozwijanie umiejętności programistycznych. Chętnie podjąłbym się współpracy przy ciekawych projektach, aby zdobyć praktyczne doświadczenie.</p>
-            <p>Jeśli masz pomysł na mały projekt lub po prostu chcesz podzielić się wiedzą, śmiało się ze mną skontaktuj!</p>
+        <div class="about-me">
+            <p>Witaj na mojej stronie! Jestem [Twoje Imię], entuzjastą programowania i świeżo upieczonym programistą.</p>
+            <p>Zapraszam Cię do odkrywania razem ze mną fascynującego świata kodowania. Jako początkujący programista, pragnę rozwijać swoje umiejętności poprzez praktyczne projekty.</p>
+            <p>Chętnie podjęłbym się współpracy przy innowacyjnych zadaniach. Dlaczego warto rozważyć współpracę ze mną?</p>
+            <ul>
+                <li><strong>Zaangażowanie:</strong> Jako początkujący programista, jestem pełen zapału i gotowy podjąć się nowych wyzwań. Twoje projekty stanowią dla mnie doskonałą okazję do nauki i rozwoju.</li>
+                <li><strong>Kreatywność:</strong> Zawsze jestem otwarty na nowe pomysły i innowacyjne podejścia. Razem możemy stworzyć coś wyjątkowego.</li>
+                <li><strong>Determinacja:</strong> Dążę do doskonałości i jestem zdeterminowany, aby dostarczyć wysokiej jakości rozwiązania. Twój sukces jest dla mnie priorytetem.</li>
+            </ul>
+            <p>Jeśli masz fascynujący pomysł na projekt lub po prostu chcesz podzielić się swoją wiedzą, nie wahaj się ze mną skontaktować. Razem możemy osiągnąć wyjątkowe rezultaty!</p>
         </div>
 
-        <a href="mailto:twoj-email@example.com" class="contact-btn">Skontaktuj się ze mną</a>
+        <a href="mailto:brzezinski.sebastian@icloud.com" class="contact-btn">Skontaktuj się ze mną</a>
+
     </main>
 
-    <footer>
+    <footer style="position: fixed; bottom: 0; left: 0; width: 100%; text-align: center; font-size: 10px; background-color: #353541; color: #9B9AA0; padding: 10px;">
         &copy; 2024 Moja Strona. Wszelkie prawa zastrzeżone.
     </footer>
 
@@ -142,4 +214,5 @@
     </script>
 
 </body>
+
 </html>
