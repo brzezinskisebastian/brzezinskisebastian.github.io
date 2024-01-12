@@ -63,6 +63,7 @@
         }
 
         .hamburger-icon {
+            display: none; /* Ukrycie domyślnie na większych ekranach */
             cursor: pointer;
             width: 36px; /* Zmniejszenie szerokości ikony do 36px */
             height: 36px; /* Zmniejszenie wysokości ikony do 36px */
@@ -79,7 +80,7 @@
 
         @media screen and (max-width: 768px) {
             .hamburger-icon {
-                display: block;
+                display: block; /* Wyświetlenie na małych ekranach */
             }
 
             nav a {
