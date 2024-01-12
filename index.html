@@ -17,8 +17,6 @@
             align-items: center;
             padding: 10px;
             background-color: #353541;
-            position: relative; /* Dodane */
-            z-index: 1; /* Dodane */
         }
 
         nav {
@@ -44,11 +42,6 @@
             align-items: center;
             padding: 20px;
             color: white;
-            margin-top: 50px; /* Dostosuj margines górny na potrzeby */
-            /* Poniżej dodane style */
-            box-sizing: border-box;
-            position: relative;
-            z-index: 0;
         }
 
         .title {
@@ -107,10 +100,6 @@
                 background-color: #353541;
                 padding: 10px;
             }
-
-            main {
-                margin-top: 110px; /* Dostosuj margines górny na potrzeby */
-            }
         }
     </style>
 </head>
@@ -130,11 +119,15 @@
 
     <main>
         <div class="title">
-            Tytuł strony
+            Cześć!
         </div>
-        <div class="text">
-            Twój tekst znajdzie się tutaj. To pole dostosuje się do szerokości ekranu.
+ <div class="about-me">
+            <p>Nazywam się [Twoje Imię], jestem ambitnym początkującym programistą gotowym na nowe wyzwania.</p>
+            <p>Moją pasją jest nauka i rozwijanie umiejętności programistycznych. Chętnie podjąłbym się współpracy przy ciekawych projektach, aby zdobyć praktyczne doświadczenie.</p>
+            <p>Jeśli masz pomysł na mały projekt lub po prostu chcesz podzielić się wiedzą, śmiało się ze mną skontaktuj!</p>
         </div>
+
+        <a href="mailto:twoj-email@example.com" class="contact-btn">Skontaktuj się ze mną</a>
     </main>
 
     <footer>
