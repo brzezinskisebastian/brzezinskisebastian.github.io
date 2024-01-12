@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moja Strona</title>
     <style>
+        /* Styl dla wszystkich urządzeń, oprócz telefonów */
         body {
             background-color: #353541;
             margin: 0;
@@ -34,14 +35,14 @@
             text-decoration: none;
             margin: 0 15px;
             font-family: 'Inter', sans-serif;
-            font-weight: 700; /* Pogrubienie tekstu */
-            font-size: 20px; /* Powiększenie czcionki */
+            font-weight: 700;
+            font-size: 20px;
             color: #9B9AA0;
             transition: all 0.3s ease;
         }
 
         nav a:hover {
-            font-weight: bold; /* Jeszcze bardziej pogrubienie po najechaniu */
+            font-weight: bold;
         }
 
         .logo {
@@ -95,9 +96,9 @@
         }
 
         .contact-btn:hover { 
-    background-color: #30303A;
-    padding: 10px 0; 
-    border-radius: 8px; 
+            background-color: #30303A;
+            padding: 10px 0; 
+            border-radius: 8px; 
         }
 
         footer {
@@ -115,31 +116,7 @@
             background: url('https://brzezinskisebastian.github.io/Menu-icon.png') center/cover;
         }
 
-nav a {
-    display: inline-block;
-    color: white;
-    text-decoration: none;
-    margin: 0 10px; 
-    font-family: 'Inter', sans-serif;
-    font-weight: 700; 
-    font-size: 20px; 
-    color: #9B9AA0;
-    width: 150px; 
-    text-align: center; 
-    line-height: 30px; 
-    transition: all 0.3s ease;
-}
-
-nav a:hover {
-    font-weight: bold; 
-    background-color: #30303A; 
-    border-radius: 8px; 
-}
-
-        nav.active a {
-            display: none;
-        }
-
+        /* Styl dla telefonów */
         @media screen and (max-width: 768px) {
             .hamburger-icon {
                 display: block;
@@ -163,8 +140,6 @@ nav a:hover {
                 padding: 10px;
             }
         }
-		
-		
     </style>
 </head>
 
