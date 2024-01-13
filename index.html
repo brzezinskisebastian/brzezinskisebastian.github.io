@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minimalistyczna Strona</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap">
     <style>
         body {
             background-color: #f8f8f8;
             margin: 0;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             color: #333;
         }
 
@@ -42,7 +42,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 70vh;
+            min-height: 70vh;
             text-align: center;
         }
 
@@ -65,8 +65,14 @@
             width: 100%;
             font-size: 12px;
         }
-    </style>
 
+        @media screen and (max-width: 768px) {
+            main {
+                min-height: 100vh;
+            }
+        }
+    </style>
+</head>
 <body>
 
     <header>
@@ -93,6 +99,7 @@
             <p>
                 Chętnie podejmę się zleceń, które pozwolą mi zdobywać praktyczne doświadczenie i rozwijać się w obszarach, które mnie najbardziej fascynują. Wierzę, że każde wyzwanie jest okazją do nauki, a współpraca z innymi pasjonatami pozwoli mi poszerzyć horyzonty i tworzyć projekty, które naprawdę mają znaczenie.
             </p>
+
             <p>
                 Jeśli masz ciekawy projekt, chętnie się przyłączę! Nie wahaj się skontaktować ze mną w celu współpracy, nauki i wymiany doświadczeń. Razem możemy osiągnąć niesamowite rezultaty!
             </p>
