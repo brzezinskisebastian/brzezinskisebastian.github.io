@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minimalistyczna Strona</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Yellowtail&family=Tangerine:wght@700&display=swap">    
     <style>
         body {
             background-color: #f8f8f8;
             margin: 0;
             font-family: 'Open Sans', sans-serif;
             color: #333;
+            overflow: hidden;
+            position: relative;
         }
 
         header {
@@ -52,6 +54,7 @@
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         footer {
@@ -71,8 +74,38 @@
                 min-height: 100vh;
             }
         }
+
+        .moving-text-container {
+    position: fixed;
+    bottom: 0px; /* Dostosowana wartość */
+    left: 0;
+    width: 100%;
+    height: 1000px;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.moving-text {
+    color: #ebebeb;
+    font-size: 50rem;
+    font-family: 'Tangerine', sans-serif;
+    white-space: nowrap;
+    margin: 0 10px;
+    transform: translateX(100%);
+    animation: moveText 50s linear infinite;
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateX(10%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
     </style>
 </head>
+
 <body>
 
     <header>
@@ -110,6 +143,11 @@
         &copy; 2024 Wszystkie Prawa Zastrzeżone
     </footer>
 
+    <div class="moving-text-container">
+        <div class="moving-text" id="text1">Developer Algorytmy Debugowanie Framework Open Source Git Frontend Backend API Cyberbezpieczeństwo JavaScript Python HTML CSS Java C++ Ruby SQL</div>     
+    </div>
+
+    
 </body>
 
 </html>
