@@ -2,193 +2,106 @@
 <html lang="pl">
 
 <head>
-    <!-- Styl dla wszystkich urządzeń, oprócz telefonów -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Montserrat:wght@400;700&family=Roboto:wght@400&family=Lato:wght@400;700&display=swap">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moja Strona</title>
+    <title>Minimalistyczna Strona</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap">
     <style>
         body {
-            background-color: #353541;
+            background-color: #f8f8f8;
             margin: 0;
-            font-family: 'Inter', sans-serif;
-            color: #9B9AA0;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background-color: #f8f8f8;
             padding: 10px;
-            background-color: #353541;
         }
 
         nav {
-            display: flex;
-            justify-content: flex-end;
+            background-color: #f8f8f8;
             padding: 10px;
-            background-color: #353541;
+            text-align: center;
         }
 
         nav a {
-            color: white;
             text-decoration: none;
-            margin: 0 15px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            font-size: 20px;
-            color: #9B9AA0;
-            transition: all 0.3s ease;
+            padding: 10px 20px;
+            color: #333;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
         nav a:hover {
-            font-weight: bold;
-        }
-
-        .logo {
-            /* Tutaj dodaj kod dla logo */
+            background-color: #f1eeee;
         }
 
         main {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            height: 70vh;
+            text-align: center;
+        }
+
+        .content {
+            max-width: 600px;
             padding: 20px;
-            color: white;
-        }
-
-        .title {
-            font-size: 35px;
-            margin: 50px 0 10px 0;
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            color: #9B9AA0;
-        }
-
-        .about-me {
-            font-size: 20px;
-            max-width: 700px;
-            text-align: justify;
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            color: #9B9AA0;
-        }
-
-        .about-me p {
-            margin-bottom: 10px;
-        }
-
-        .about-me ul {
-            margin-top: 0;
-            padding-left: 20px;
-        }
-
-        .contact-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            color: #9B9AA0;
-            text-decoration: none;
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            font-size: 18px;
-            margin-top: 10px;
-            transition: all 0.2s ease;
-        }
-
-        .contact-btn:hover { 
-            background-color: #30303A;
-            padding: 10px 0; 
-            border-radius: 8px; 
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         footer {
+            background-color: #f8f8f8;
+            color: black;
             text-align: center;
             padding: 10px;
-            background-color: #353541;
-            color: white;
-        }
-
-        .hamburger-icon {
-            display: none;
-            cursor: pointer;
-            width: 30px;
-            height: 30px;
-            background: url('https://brzezinskisebastian.github.io/Menu-icon.png') center/cover;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            font-size: 12px;
         }
     </style>
-
-    <!-- Styl dla telefonów -->
-    <style>
-        @media screen and (max-width: 768px) {
-            .hamburger-icon {
-                display: block;
-            }
-
-            nav a {
-                display: none;
-            }
-
-            nav.active a {
-                display: block;
-            }
-
-            nav {
-                width: 100%;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                flex-direction: column;
-                background-color: #353541;
-                padding: 10px;
-            }
-        }
-    </style>
-</head>
 
 <body>
 
     <header>
-        <div class="logo">
-            <!-- Tutaj dodaj kod dla logo -->
-        </div>
-        <div class="hamburger-icon" onclick="toggleMenu()"></div>
-        <nav class="hamburger-menu">
-            <a href="#" onclick="toggleMenu()">Główna</a>
-            <a href="#" onclick="toggleMenu()">Do pobrania</a>
-            <a href="#" onclick="toggleMenu()">Kontakt</a>
-        </nav>
+
     </header>
 
+    <nav>
+        <a href="#">Strona Główna</a>
+        <a href="#">Do pobrania</a>
+        <a href="#">Kontakt</a>
+    </nav>
+
     <main>
-        <div class="title">
-            Cześć!
+        <div class="content">
+            <p>
+                Jestem pasjonatem programowania, gotowym na fascynującą podróż odkrywania tajników kodu i rozwijania umiejętności programistycznych. Jestem przekonany, że ciągłe doskonalenie się w tej dziedzinie jest kluczem do tworzenia innowacyjnych i efektywnych rozwiązań.
+            </p>
+            <p>
+                Moja droga do nauki programowania jest pełna entuzjazmu i zapału do podjęcia nowych wyzwań. Chciałbym nie tylko zdobywać wiedzę teoretyczną, ale także uczestniczyć w praktycznych projektach, które pozwolą mi w pełni zrozumieć świat programowania.
+            </p>
+            <p>
+                Jestem otwarty na wszelkie możliwości współpracy, nawet te bezpłatne, które pozwolą mi zdobywać doświadczenie i umiejętności praktyczne. Zależy mi na tym, aby wkładać wysiłek w rozwój mojej kariery poprzez aktywny udział w projektach, zdobywanie wskazówek od doświadczonych programistów oraz zgłębianie różnych gałęzi programowania.
+            </p>
+            <p>
+                Chętnie podejmę się zleceń, które pozwolą mi zdobywać praktyczne doświadczenie i rozwijać się w obszarach, które mnie najbardziej fascynują. Wierzę, że każde wyzwanie jest okazją do nauki, a współpraca z innymi pasjonatami pozwoli mi poszerzyć horyzonty i tworzyć projekty, które naprawdę mają znaczenie.
+            </p>
+            <p>
+                Jeśli masz ciekawy projekt, chętnie się przyłączę! Nie wahaj się skontaktować ze mną w celu współpracy, nauki i wymiany doświadczeń. Razem możemy osiągnąć niesamowite rezultaty!
+            </p>
         </div>
-        <div class="about-me">
-            <p>Witaj na mojej stronie! Jestem [Twoje Imię], entuzjastą programowania i świeżo upieczonym programistą.</p>
-            <p>Zapraszam Cię do odkrywania razem ze mną fascynującego świata kodowania. Jako początkujący programista, pragnę rozwijać swoje umiejętności poprzez praktyczne projekty.</p>
-            <p>Chętnie podjęłbym się współpracy przy innowacyjnych zadaniach. Dlaczego warto rozważyć współpracę ze mną?</p>
-            <ul>
-                <li><strong>Zaangażowanie:</strong> Jako początkujący programista, jestem pełen zapału i gotowy podjąć się nowych wyzwań. Twoje projekty stanowią dla mnie doskonałą okazję do nauki i rozwoju.</li>
-                <li><strong>Kreatywność:</strong> Zawsze jestem otwarty na nowe pomysły i innowacyjne podejścia. Razem możemy stworzyć coś wyjątkowego.</li>
-                <li><strong>Determinacja:</strong> Dążę do doskonałości i jestem zdeterminowany, aby dostarczyć wysokiej jakości rozwiązania. Twój sukces jest dla mnie priorytetem.</li>
-            </ul>
-            <p>Jeśli masz fascynujący pomysł na projekt lub po prostu chcesz podzielić się swoją wiedzą, nie wahaj się ze mną skontaktować. Razem możemy osiągnąć wyjątkowe rezultaty!</p>
-        </div>
-
-        <a href="mailto:brzezinski.sebastian@icloud.com" class="contact-btn">Skontaktuj się ze mną</a>
-
     </main>
 
-    <footer style="position: fixed; bottom: 0; left: 0; width: 100%; text-align: center; font-size: 10px; background-color: #353541; color: #9B9AA0; padding: 10px;">
-        &copy; 2024 Moja Strona. Wszelkie prawa zastrzeżone.
+    <footer>
+        &copy; 2024 Wszystkie Prawa Zastrzeżone
     </footer>
-
-    <script>
-        function toggleMenu() {
-            const nav = document.querySelector('nav.hamburger-menu');
-            nav.classList.toggle('active');
-        }
-    </script>
 
 </body>
 
