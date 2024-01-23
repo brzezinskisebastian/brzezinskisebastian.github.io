@@ -8,48 +8,40 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&;700&family=Yellowtail&display=swap">
     <style>
         body {
-            display: flex;
-            align-items: center; /* Wyśrodkuj wertykalnie */
-            justify-content: center;
-            height: 100vh;
-            background: white;
             margin: 0;
-            font-family: 'Lato', sans-serif; /* Ustaw czcionkę Inter */
-            color: #000000;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
             box-sizing: border-box;
         }
 
         .container {
             display: flex;
-            align-items: flex-start; /* Wyjustuj tekst do góry */
-            justify-content: space-between; /* Ustaw odstęp między elementami */
-            max-width: 800px; /* Maksymalna szerokość kontenera */
+            flex-wrap: wrap; /* Nowa linia dla małych ekranów */
+            justify-content: space-between;
+            max-width: 500px;
+            margin: 20px auto; /* Centrowanie */
             padding: 20px;
-            margin: 0 auto; /* Wyśrodkuj kontener na stronie */
             font-size: 20px;
-            outline: 0px solid #000; /* Dodaj obramowanie */
+            outline: 0px solid #000;
         }
 
         .text-container {
-            width: calc(50% - 10px); /* Połowa szerokości kontenera minus marginesy */
-            font-size: 25px;
-            outline: 0px solid #000; /* Dodaj obramowanie */
-            margin-bottom: 20px; /* Dodaj margines na dole */
+            width: 100%;
+            margin-bottom: 20px;
         }
 
         .text-container p:first-child {
-            font-family: 'Yellowtail', cursive; /* Ustaw czcionkę Yellowtail */
-            font-size: 1.5em; /* Ustaw wielkość czcionki na 1.5em */
+            font-family: 'Yellowtail', cursive;
+            font-size: 1.5em;
             font-size: 30px;
         }
 
         form {
-            width: calc(50% - 10px); /* Połowa szerokości kontenera minus marginesy */
-            max-width: 100%; /* Maksymalna szerokość formularza */
-            padding: 20px;
+            width: 100%;
+            max-width: none;
             border-radius: 0px;
-            outline: 0px solid #000; /* Dodaj obramowanie */
-            margin-top: 40px; /* Dodaj margines na dole formularza */
+            outline: 0px solid #000;
+            margin-top: 20px;
         }
 
         label {
@@ -59,27 +51,28 @@
 
         textarea,
         input {
-            width: 100%; /* Pełna szerokość formularza */
-            padding: 10px;
+            width: 100%;
             margin-bottom: 16px;
+            padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
             font-size: 16px;
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Dodaj cień dla pól tekstowych */
-            transition: box-shadow 0.3s ease; /* Dodaj płynne przejście dla cienia */
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease;
         }
 
         input:focus,
         textarea:focus {
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.3); /* Dodaj cień na focusie */
-            outline: none; /* Usuń domyślną obwódkę na focusie */
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+            outline: none;
         }
 
         button {
+            width: 100%;
+            padding: 10px 20px;
             background-color: #808080;
             color: #fff;
-            padding: 10px 20px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -90,10 +83,11 @@
         button:hover {
             background-color: #6d6d6d;
         }
+
         .author {
-            position: fixed; /* Ustaw pozycję na stałą */
-            bottom: 0; /* Przypnij do dolnej krawędzi */
-            right: 0; /* Przypnij do prawej krawędzi */
+            position: fixed;
+            bottom: 0;
+            right: 0;
             padding: 10px;
             background-color: transparent;
             font-size: 15px;
@@ -110,7 +104,7 @@
         </div>
         <form action="https://formspree.io/f/xoqgjeen" method="post">
             <label for="proposal">Propozycja Rozwoju:</label>
-            <textarea id="proposal" name="proposal" rows="8" required></textarea> <!-- Zwiększ liczba rows -->
+            <textarea id="proposal" name="proposal" rows="8" required></textarea>
 
             <label for="fullName">Imię i Nazwisko:</label>
             <input type="text" id="fullName" name="fullName" required>
@@ -120,7 +114,6 @@
 
             <button type="submit">Wyślij</button>
         </form>
-        
     </div>
     <div class="author">
         Autor: Sebastian Brzeziński
