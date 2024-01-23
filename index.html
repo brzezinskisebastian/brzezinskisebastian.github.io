@@ -4,150 +4,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minimalistyczna Strona</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Yellowtail&family=Tangerine:wght@700&display=swap">    
+    <title>Formularz Propozycji Rozwoju Miasta Milanówka</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&;700&family=Yellowtail&display=swap">
     <style>
         body {
-            background-color: #f8f8f8;
-            margin: 0;
-            font-family: 'Open Sans', sans-serif;
-            color: #333;
-            overflow: hidden;
-            position: relative;
-        }
-
-        header {
-            background-color: #f8f8f8;
-            padding: 10px;
-        }
-
-        nav {
-            background-color: #f8f8f8;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav a {
-            text-decoration: none;
-            padding: 10px 20px;
-            color: #333;
-            margin: 0 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        nav a:hover {
-            background-color: #f1eeee;
-        }
-
-        main {
             display: flex;
+            align-items: center; /* Wyśrodkuj wertykalnie */
             justify-content: center;
-            align-items: center;
-            min-height: 70vh;
-            text-align: center;
+            height: 100vh;
+            background: white;
+            margin: 0;
+            font-family: 'Lato', sans-serif; /* Ustaw czcionkę Inter */
+            color: #000000;
+            box-sizing: border-box;
         }
 
-        .content {
-            max-width: 600px;
+        .container {
+            display: flex;
+            align-items: flex-start; /* Wyjustuj tekst do góry */
+            justify-content: space-between; /* Ustaw odstęp między elementami */
+            max-width: 800px; /* Maksymalna szerokość kontenera */
             padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative;
+            margin: 0 auto; /* Wyśrodkuj kontener na stronie */
+            font-size: 20px;
+            outline: 0px solid #000; /* Dodaj obramowanie */
         }
 
-        footer {
-            background-color: #f8f8f8;
-            color: black;
-            text-align: center;
+        .text-container {
+            width: calc(50% - 10px); /* Połowa szerokości kontenera minus marginesy */
+            font-size: 25px;
+            outline: 0px solid #000; /* Dodaj obramowanie */
+            margin-bottom: 20px; /* Dodaj margines na dole */
+        }
+
+        .text-container p:first-child {
+            font-family: 'Yellowtail', cursive; /* Ustaw czcionkę Yellowtail */
+            font-size: 1.5em; /* Ustaw wielkość czcionki na 1.5em */
+            font-size: 30px;
+        }
+
+        form {
+            width: calc(50% - 10px); /* Połowa szerokości kontenera minus marginesy */
+            max-width: 100%; /* Maksymalna szerokość formularza */
+            padding: 20px;
+            border-radius: 0px;
+            outline: 0px solid #000; /* Dodaj obramowanie */
+            margin-top: 40px; /* Dodaj margines na dole formularza */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        textarea,
+        input {
+            width: 100%; /* Pełna szerokość formularza */
             padding: 10px;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            font-size: 12px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Dodaj cień dla pól tekstowych */
+            transition: box-shadow 0.3s ease; /* Dodaj płynne przejście dla cienia */
         }
 
-        @media screen and (max-width: 768px) {
-            main {
-                min-height: 100vh;
-            }
+        input:focus,
+        textarea:focus {
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.3); /* Dodaj cień na focusie */
+            outline: none; /* Usuń domyślną obwódkę na focusie */
         }
 
-        .moving-text-container {
-    position: fixed;
-    bottom: 0px; /* Dostosowana wartość */
-    left: 0;
-    width: 100%;
-    height: 105%;
-    overflow: hidden;
-    z-index: -1;
-}
+        button {
+            background-color: #808080;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        }
 
-.moving-text {
-    color: #ebebeb;
-    font-size: 50rem;
-    font-family: 'Tangerine', sans-serif;
-    white-space: nowrap;
-    margin: 0 10px;
-    transform: translateX(100%);
-    animation: moveText 50s linear infinite;
-}
-
-@keyframes moveText {
-    0% {
-        transform: translateX(10%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
+        button:hover {
+            background-color: #6d6d6d;
+        }
+        .author {
+            position: fixed; /* Ustaw pozycję na stałą */
+            bottom: 0; /* Przypnij do dolnej krawędzi */
+            right: 0; /* Przypnij do prawej krawędzi */
+            padding: 10px;
+            background-color: transparent;
+            font-size: 15px;
+        }
     </style>
+    
 </head>
 
 <body>
-
-    <header>
-
-    </header>
-
-    <nav>
-        <a href="#">Strona Główna</a>
-        <a href="#">Do pobrania</a>
-        <a href="#">Kontakt</a>
-    </nav>
-
-    <main>
-        <div class="content">
-            <p>
-                Jestem pasjonatem programowania, gotowym na fascynującą podróż odkrywania tajników kodu i rozwijania umiejętności programistycznych. Jestem przekonany, że ciągłe doskonalenie się w tej dziedzinie jest kluczem do tworzenia innowacyjnych i efektywnych rozwiązań.
-            </p>
-            <p>
-                Moja droga do nauki programowania jest pełna entuzjazmu i zapału do podjęcia nowych wyzwań. Chciałbym nie tylko zdobywać wiedzę teoretyczną, ale także uczestniczyć w praktycznych projektach, które pozwolą mi w pełni zrozumieć świat programowania.
-            </p>
-            <p>
-                Jestem otwarty na wszelkie możliwości współpracy, nawet te bezpłatne, które pozwolą mi zdobywać doświadczenie i umiejętności praktyczne. Zależy mi na tym, aby wkładać wysiłek w rozwój mojej kariery poprzez aktywny udział w projektach, zdobywanie wskazówek od doświadczonych programistów oraz zgłębianie różnych gałęzi programowania.
-            </p>
-            <p>
-                Chętnie podejmę się zleceń, które pozwolą mi zdobywać praktyczne doświadczenie i rozwijać się w obszarach, które mnie najbardziej fascynują. Wierzę, że każde wyzwanie jest okazją do nauki, a współpraca z innymi pasjonatami pozwoli mi poszerzyć horyzonty i tworzyć projekty, które naprawdę mają znaczenie.
-            </p>
-
-            <p>
-                Jeśli masz ciekawy projekt, chętnie się przyłączę! Nie wahaj się skontaktować ze mną w celu współpracy, nauki i wymiany doświadczeń. Razem możemy osiągnąć niesamowite rezultaty!
-            </p>
+    <div class="container">
+        <div class="text-container">
+            <p>Powiedz nam co myślisz</p>
+            <p>Milanówek to dynamiczne serce społeczności, stale rozwijające się i odpowiadające na potrzeby mieszkańców. Zachęcamy do dzielenia się pomysłami na innowacje, składania skarg, oraz przekazywania cennych informacji, abyśmy razem mogli tworzyć lepsze jutro dla naszego wspólnego miasta. Paleta waszych myśli i spostrzeżeń jest kluczem do kształtowania przyszłości, dlatego każdy głos jest dla nas ważny.</p>
         </div>
-    </main>
+        <form action="https://formspree.io/f/xoqgjeen" method="post">
+            <label for="proposal">Propozycja Rozwoju:</label>
+            <textarea id="proposal" name="proposal" rows="8" required></textarea> <!-- Zwiększ liczba rows -->
 
-    <footer>
-        &copy; 2024 Wszystkie Prawa Zastrzeżone
-    </footer>
+            <label for="fullName">Imię i Nazwisko:</label>
+            <input type="text" id="fullName" name="fullName" required>
 
-    <div class="moving-text-container">
-        <div class="moving-text" id="text1">Developer Algorytmy Debugowanie Framework Open Source Git Frontend Backend API Cyberbezpieczeństwo JavaScript Python HTML CSS Java C++ Ruby SQL</div>     
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <button type="submit">Wyślij</button>
+        </form>
+        
     </div>
-
-    
+    <div class="author">
+        Autor: Sebastian Brzeziński
+    </div>
 </body>
 
 </html>
