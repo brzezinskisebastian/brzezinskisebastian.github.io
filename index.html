@@ -100,20 +100,12 @@
             color: #000;
         }
 
-        @media only screen and (max-width: 600px) {
-            .bottom-bar {
-                display: block; /* Pojawia się tylko na małych ekranach */
-            }
-
-            .author-desktop {
-                display: none; /* Ukryj na desktopie */
-            }
+        .author-desktop {
+            display: block; /* Pokazuj na desktopie */
         }
 
-        @media only screen and (min-width: 601px) {
-            .author-mobile {
-                display: none; /* Ukryj na telefonie */
-            }
+        .author-mobile {
+            display: none; /* Ukryj na telefonie */
         }
     </style>
 </head>
@@ -138,8 +130,29 @@
         </form>
     </div>
     <div class="bottom-bar">
-        <a href="https://milanowek.pl" target="_blank">Milanówek.pl</a> | Autor: Sebastian Brzeziński
+        <a href="https://milanowek.pl" target="_blank">Milanówek.pl</a> | <span class="author-desktop">Autor: Sebastian Brzeziński</span>
     </div>
+
+    <script>
+        window.addEventListener('resize', function () {
+            var authorDesktop = document.querySelector('.author-desktop');
+            var authorMobile = document.querySelector('.author-mobile');
+            var bottomBar = document.querySelector('.bottom-bar');
+
+            if (window.innerWidth <= 600) {
+                authorDesktop.style.display = 'none';
+                authorMobile.style.display = 'block';
+                bottomBar.style.display = 'block';
+            } else {
+                authorDesktop.style.display = 'block';
+                authorMobile.style.display = 'none';
+                bottomBar.style.display = 'none';
+            }
+        });
+
+        // Trigger the event once to set the initial state
+        window.dispatchEvent(new Event('resize'));
+    </script>
 </body>
 
 </html>
