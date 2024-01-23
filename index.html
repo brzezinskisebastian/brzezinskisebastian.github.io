@@ -21,7 +21,7 @@
             max-width: 500px;
             margin: 20px auto; /* Centrowanie */
             padding: 20px;
-            font-size: 20px;
+            font-size: 18px;
             outline: 0px solid #000;
         }
 
@@ -85,27 +85,39 @@
         }
 
         .bottom-bar {
-            display: none; /* Ukryj na początku */
+            display: block; /* Pokazuj na laptopie */
             position: fixed;
             bottom: 0;
             width: 100%;
             background-color: #f1f1f1;
             padding: 10px;
-            text-align: right;
+            text-align: center;
             font-size: 12px;
         }
 
         .bottom-bar a {
             text-decoration: none;
             color: #000;
+            margin-right: 20px;
         }
 
         .author-desktop {
-            display: block; /* Pokazuj na desktopie */
+            margin-left: 20px;
+            display: inline-block; /* Pokazuj na laptopie */
         }
 
         .author-mobile {
             display: none; /* Ukryj na telefonie */
+        }
+
+        @media only screen and (max-width: 600px) {
+            .bottom-bar {
+                display: none; /* Ukryj na małych ekranach */
+            }
+
+            .author-desktop {
+                display: none; /* Ukryj na desktopie */
+            }
         }
     </style>
 </head>
@@ -132,27 +144,6 @@
     <div class="bottom-bar">
         <a href="https://milanowek.pl" target="_blank">Milanówek.pl</a> | <span class="author-desktop">Autor: Sebastian Brzeziński</span>
     </div>
-
-    <script>
-        window.addEventListener('resize', function () {
-            var authorDesktop = document.querySelector('.author-desktop');
-            var authorMobile = document.querySelector('.author-mobile');
-            var bottomBar = document.querySelector('.bottom-bar');
-
-            if (window.innerWidth <= 600) {
-                authorDesktop.style.display = 'none';
-                authorMobile.style.display = 'block';
-                bottomBar.style.display = 'block';
-            } else {
-                authorDesktop.style.display = 'block';
-                authorMobile.style.display = 'none';
-                bottomBar.style.display = 'none';
-            }
-        });
-
-        // Trigger the event once to set the initial state
-        window.dispatchEvent(new Event('resize'));
-    </script>
 </body>
 
 </html>
