@@ -1,149 +1,85 @@
 <!DOCTYPE html>
-<html lang="pl">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formularz Propozycji Rozwoju Miasta Milanówka</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&;700&family=Yellowtail&display=swap">
+    <title>Strona z przyciskami</title>
+    <!-- Dodaj link do arkusza stylów CSS z Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&display=swap">
     <style>
         body {
+            font-family: 'Lato', sans-serif; /* Ustaw czcionkę Lato dla całej strony */
             margin: 0;
             padding: 0;
-            font-family: 'Lato', sans-serif;
-            box-sizing: border-box;
         }
-
         .container {
-            display: flex;
-            flex-wrap: wrap; /* Nowa linia dla małych ekranów */
-            justify-content: space-between;
-            max-width: 500px;
-            margin: 20px auto; /* Centrowanie */
-            padding: 20px;
-            font-size: 18px;
-            outline: 0px solid #000;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
         }
-
-        .text-container {
-            width: 100%;
-            margin-bottom: 40px; /* Zwiększony margines, aby uniknąć zakrywania przez autora */
+        .button-row {
+            margin-top: 5px;
+            margin-bottom: 10px; /* Zmniejszenie marginesu na dole */
         }
-
-        .text-container p:first-child {
-            font-family: 'Yellowtail', cursive;
-            font-size: 1.5em;
-            font-size: 30px;
+        .button {
+            display: inline-block;
+            margin: 0 15px;
+            padding: 10px 5px;
+            font-size: 14px;
+            background-color: transparent;
+            color: #000000;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
-
-        form {
-            width: 100%;
-            max-width: none;
-            border-radius: 0px;
-            outline: 0px solid #000;
+        .button:hover {
+            background-color: #e4e4e4;
+            border-radius: 10px;
+        }
+        .line {
+            width: auto;
+            height: 1px;
+            background-color: #000000;
+            margin: 10px 0; /* Zmniejszenie marginesu na górze i dole */
+            border-radius: 10px;
+        }
+        .copyright {
+            font-size: 12px;
             margin-top: 20px;
         }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
+        .social-icons {
+            margin-top: 10px;
         }
-
-        textarea,
-        input {
-            width: 100%;
-            margin-bottom: 16px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-            transition: box-shadow 0.3s ease;
-        }
-
-        input:focus,
-        textarea:focus {
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-            outline: none;
-        }
-
-        button {
-            width: 100%;
-            padding: 10px 20px;
-            background-color: #808080;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            margin: 0 5px;
             cursor: pointer;
-            font-size: 16px;
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-        }
-
-        button:hover {
-            background-color: #6d6d6d;
-        }
-
-        .bottom-bar {
-            display: block; /* Pokazuj na laptopie */
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: #f1f1f1;
-            padding: 10px;
-            text-align: center;
-            font-size: 12px;
-        }
-
-        .bottom-bar a {
-            text-decoration: none;
-            color: #000;
-            margin-right: 20px;
-        }
-
-        .author-desktop {
-            margin-left: 20px;
-            display: inline-block; /* Pokazuj na laptopie */
-        }
-
-        .author-mobile {
-            display: none; /* Ukryj na telefonie */
-        }
-
-        @media only screen and (max-width: 600px) {
-            .bottom-bar {
-                display: none; /* Ukryj na małych ekranach */
-            }
-
-            .author-desktop {
-                display: none; /* Ukryj na desktopie */
-            }
         }
     </style>
 </head>
-
 <body>
     <div class="container">
-        <div class="text-container">
-            <p>Powiedz nam co myślisz</p>
-            <p>Milanówek to dynamiczne serce społeczności, stale rozwijające się i odpowiadające na potrzeby mieszkańców. Zachęcamy do dzielenia się pomysłami na innowacje, składania skarg, oraz przekazywania cennych informacji, abyśmy razem mogli tworzyć lepsze jutro dla naszego wspólnego miasta. Paleta waszych myśli i spostrzeżeń jest kluczem do kształtowania przyszłości, dlatego każdy głos jest dla nas ważny.</p>
+        <div class="button-row">
+            <button class="button">Strona Główna</button>
+            <button class="button">Tekst 2</button>
+            <button class="button">Aplikacje</button>
+            <button class="button" onclick="window.location.href='privacy.html'">Polityka prywatności</button>
+            <button class="button">Kontakt</button>
         </div>
-        <form action="https://formspree.io/f/xoqgjeen" method="post">
-            <label for="proposal">Propozycja Rozwoju:</label>
-            <textarea id="proposal" name="proposal" rows="8" required></textarea>
-
-            <label for="fullName">Imię i Nazwisko:</label>
-            <input type="text" id="fullName" name="fullName" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <button type="submit">Wyślij</button>
-        </form>
-    </div>
-    <div class="bottom-bar">
-        <a href="https://milanowek.pl" target="_blank">Milanówek.pl</a> | <span class="author-desktop">Autor: Sebastian Brzeziński</span>
+        <div class="line"></div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet, est ut vestibulum posuere, nisl nulla ultricies risus, sed volutpat ipsum nisl in mi. Nulla vitae justo sed est luctus blandit. Duis euismod euismod nisi eget ultricies. Vestibulum gravida auctor quam, sit amet aliquam arcu viverra at. Nam euismod euismod nulla, a rhoncus nunc scelerisque a. Aliquam vitae ligula convallis, facilisis tortor nec, posuere nunc. Curabitur eget tortor nisi. Praesent malesuada euismod nulla vel convallis. Nulla facilisi. Mauris faucibus, neque sit amet gravida iaculis, arcu lacus facilisis magna, et tempus est purus in urna.</p>
+        <div class="copyright">
+            &copy; 2024 Wszystkie prawa zastrzeżone
+        </div>
+        <div class="social-icons">
+            <img src="https://brzezinskisebastian.github.io/icons8-tiktok-50.png" alt="TikTok" class="social-icon">
+            <img src="https://brzezinskisebastian.github.io/twitter.png" alt="Twitter" class="social-icon">
+            <img src="https://brzezinskisebastian.github.io/icons8-facebook-50.png" alt="Facebook" class="social-icon">
+            <!-- Dodaj kolejne ikony mediów społecznościowych tutaj -->
+        </div>
     </div>
 </body>
-
 </html>
