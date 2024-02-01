@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strona z przyciskami</title>
+    <title>Sebastian Brzeziński</title>
     <!-- Dodaj link do arkusza stylów CSS z Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&display=swap">
     <style>
@@ -20,11 +20,13 @@
         .button-row {
             margin-top: 5px;
             margin-bottom: 10px; /* Zmniejszenie marginesu na dole */
+            display: flex;
+            justify-content: center;
         }
         .button {
             display: inline-block;
-            margin: 0 15px;
-            padding: 10px 5px;
+            margin: 0 5px; /* Margines wokół przycisków */
+            padding: 10px 20px; /* Stałe odstępy wewnątrz przycisków */
             font-size: 14px;
             background-color: transparent;
             color: #000000;
@@ -48,19 +50,18 @@
         .copyright {
             font-size: 12px;
             margin-top: 20px;
-            text-align: center;
+            text-align: center; /* Wyśrodkowanie tekstu */
         }
         .social-icons {
             margin-top: 10px;
-            margin-bottom: 20px;
-            text-align: center;
+            margin-bottom: 20px; /* Zwiększenie marginesu na dole */
+            text-align: center; /* Wyśrodkowanie ikon */
         }
         .social-icon {
             width: 30px;
             height: 30px;
             margin: 0 5px;
             cursor: pointer;
-            
         }
     </style>
 </head>
