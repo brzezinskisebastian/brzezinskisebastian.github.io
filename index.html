@@ -3,88 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sebastian Brzeziński</title>
-    <!-- Dodaj link do arkusza stylów CSS z Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&display=swap">
+    <title>Strona z kontenerami</title>
     <style>
         body {
-            font-family: 'Lato', sans-serif; /* Ustaw czcionkę Lato dla całej strony */
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            text-align: center;
-            max-width: 700px;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
             margin: 0 auto;
+            max-width: 1200px;
+            padding: 0;
+            background-color: #f0f0f0;
         }
-        .button-row {
-            margin-top: 5px;
-            margin-bottom: 10px; /* Zmniejszenie marginesu na dole */
-            display: flex;
-            justify-content: center;
-        }
-        .button {
-            display: inline-block;
-            margin: 0 5px; /* Margines wokół przycisków */
-            padding: 10px 20px; /* Stałe odstępy wewnątrz przycisków */
-            font-size: 14px;
-            background-color: transparent;
-            color: #000000;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        .button:hover {
-            background-color: #e4e4e4;
+
+        .container {
+            width: 23%;
+            margin: 1%;
+            background-color: #fff;
             border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            float: left;
+            transition: all 0.3s ease; /* Dodaj płynne przejście */
         }
-        .line {
-            width: auto;
-            height: 1px;
-            background-color: #000000;
-            margin: 10px 0; /* Zmniejszenie marginesu na górze i dole */
-            border-radius: 10px;
+
+        .container img {
+            width: 100%;
+            height: auto;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
-        .copyright {
-            font-size: 12px;
-            margin-top: 20px;
-            text-align: center; /* Wyśrodkowanie tekstu */
+
+        .container .content {
+            padding: 10px;
+            height: 120px;
+            overflow: hidden;
         }
-        .social-icons {
-            margin-top: 10px;
-            margin-bottom: 20px; /* Zwiększenie marginesu na dole */
-            text-align: center; /* Wyśrodkowanie ikon */
+
+        .container .content h2 {
+            margin: 0;
         }
-        .social-icon {
-            width: 30px;
-            height: 30px;
-            margin: 0 5px;
-            cursor: pointer;
+
+        .container .content h3 {
+            margin: 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .container .content p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                margin: 2% 0;
+            }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <div class="button-row">
-            <button class="button" onclick="window.location.href='https://brzezinskisebastian.github.io/index.html'">Strona Główna</button>
-            <button class="button" onclick="window.location.href='https://brzezinskisebastian.github.io/HTMLPAGE/collaboration.html'">Współpraca</button>
-            <button class="button" onclick="window.location.href='https://brzezinskisebastian.github.io/HTMLPAGE/apps.html'">Aplikacje</button>
-            <button class="button" onclick="window.location.href='https://brzezinskisebastian.github.io/HTMLPAGE/privacy.html'">Polityka prywatności</button>
-            <button class="button" onclick="window.location.href='https://brzezinskisebastian.github.io/HTMLPAGE/contacts.html'">Kontakt</button>
-        </div>
-        <div class="line"></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet, est ut vestibulum posuere, nisl nulla ultricies risus, sed volutpat ipsum nisl in mi. Nulla vitae justo sed est luctus blandit. Duis euismod euismod nisi eget ultricies. Vestibulum gravida auctor quam, sit amet aliquam arcu viverra at. Nam euismod euismod nulla, a rhoncus nunc scelerisque a. Aliquam vitae ligula convallis, facilisis tortor nec, posuere nunc. Curabitur eget tortor nisi. Praesent malesuada euismod nulla vel convallis. Nulla facilisi. Mauris faucibus, neque sit amet gravida iaculis, arcu lacus facilisis magna, et tempus est purus in urna.</p>
-        <div class="copyright">
-            &copy; 2024 Wszystkie prawa zastrzeżone
-        </div>
-        <div class="social-icons">
-            <img src="https://brzezinskisebastian.github.io/HTMLPAGE/icons8-tiktok-50.png" alt="TikTok" class="social-icon">
-            <img src="https://brzezinskisebastian.github.io/HTMLPAGE/icons8-twitter-50.png" alt="Twitter" class="social-icon">
-            <img src="https://brzezinskisebastian.github.io/HTMLPAGE/icons8-facebook-50.png" alt="Facebook" class="social-icon">
-            <!-- Dodaj kolejne ikony mediów społecznościowych tutaj -->
+        <img src="https://via.placeholder.com/400x300" alt="Person 1">
+        <div class="content">
+            <h2>Okręg 1</h2>
+            <h3>Podtytuł dla Okręgu 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
     </div>
-</body>
-</html>
+    
+    <div class="container">
+        <img src="https://via.placeholder.com/400x300" alt="Person 2">
+        <div class="content">
+            <h2>Okręg 2</h2>
+            <h3>Podtytuł dla Okręgu 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <img src="https://via.placeholder.com/400x300" alt="Person 3">
+        <div class="content">
+            <h2>Okręg 3</h2>
+            <h3>Podtytuł dla Okręgu 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <img src="https://via.placeholder.com/400x300" alt="Person 4">
+        <div class="content">
+            <h2>Okręg 4</h2>
+            <h3>Podtytuł dla Okręgu 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+    <div class="container">
+        <img src="https://via.placeholder.com/400x300" alt="Person 1">
+        <div class="content">
+            <h2>Okręg 5</h2>
+            <h3>Podtytuł dla Okręgu 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <img src="https://via.placeholder.com/400x300" alt="Person 2">
+        <div class="content">
+            <h2>Okręg 6</h2>
+            <h3>Podtytuł dla Okręgu 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <img src="https://via.placeholder.com/400x300" alt="Person 3">
+        <div class="content">
+            <h2>Okręg 7</h2>
+            <h3>Podtytuł dla Okręgu 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <img src="https://via.placeholder.com/400x300" alt="Person 4">
+        <div class="content">
+            <h2>Okręg 8</h2>
+            <h3>Podtytuł dla Okręgu 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <img src="https://via.placeholder.com/400x300" alt="Person 1">
+        <div class="content">
+            <h2>Okręg 9</h2>
+            <h3>Podtytuł dla Okręgu 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <img src="https://via.placeholder.com/400x300" alt="Person 2">
+        <div class="content">
+            <h2>Okręg 10</h2>
+            <h3>Podtytuł dla Okręgu 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <img src="https://via.placeholder.com/400x300" alt="Person 3">
+        <div class="content">
+            <h2>Okręg 11</h2>
+            <h3>Podtytuł dla Okręgu 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <img src="https://via.placeholder.com/400x300" alt="Person 4">
+        <div class="content">
+            <h2>Okręg 12</h2>
+            <h3>Podtytuł dla Okręgu 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <img src="https://via.placeholder.com/400x300" alt="Person 2">
+        <div class="content">
+            <h2>Okręg 13</h2>
+            <h3>Podtytuł dla Okręgu 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <img src="https://via.placeholder.com/400x300" alt="Person 3">
+        <div class="content">
+            <h2>Okręg 14</h2>
+            <h3>Podtytuł dla Okręgu 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <img src="https://via.placeholder.com/400x300" alt="Person 4">
+        <div class="content">
+            <h2>Okręg 15</h2>
+            <h3>Podtytuł dla Okręgu 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleContainer(container) {
+            container.classList.toggle('expanded');
+            var containers = document.querySelectorAll('.container');
+            containers.forEach(function(cont) {
+                if (cont !== container && cont.classList.contains('expanded')) {
+                    cont.classList.remove('expanded');
+                }
+            });
+        }
+    
+        // Dodaj zdarzenie do zwijania kontenerów po kliknięciu gdzie indziej na stronie
+        window.addEventListener('click', function(event) {
+            var containers = document.querySelectorAll('.container');
+            var target = event.target;
+            var isContainer = false;
+            while (target) {
+                if (target.classList && target.classList.contains('container')) {
+                    isContainer = true;
+                    break;
+                }
+                target = target.parentNode;
+            }
+    
+            if (!isContainer) {
+                containers.forEach(function(cont) {
+                    cont.classList.remove('expanded');
+                });
+            }
+        });
+    </script>
+
+    </body>
+    </html>
