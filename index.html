@@ -4,103 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Strona do nauki</title>
-<link href="https://fonts.googleapis.com/css2?family=Palatino+Linotype:wght@700&display=swap" rel="stylesheet">
-<style>
-     body {
-    font-family: Arial, sans-serif;
-    margin: 3% 0 0 0; /* Marginesy: góra, prawo, dół, lewo */
-    padding: 0;
-    text-align: center; /* Wycentruj treść w obszarze body */
-    background-color: #f2f2f2; /* Delikatna szarość */
-}
-
-.container {
-    background-color: #FFFFFF; /* Kolor tła kontenera */
-    width: 250px;
-    height: 300px; /* Wysokość kontenera */
-    margin: 10px;
-
-    display: inline-block; /* Użyj display: inline-block, aby kontenery były ułożone obok siebie */
-    vertical-align: top; /* Ustawienie pionowego wyrównania na górę, aby kontenery miały jednakową wysokość */
-    border: none; /* Usunięcie granicy, aby móc stosować własne zaokrąglenie rogów */
-    border-radius: 10px; /* Zaokrąglenie rogów kontenera */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Dodanie cienia */
-    position: relative; /* Ustawienie pozycji względnej, aby móc pozycjonować element wewnątrz */
-}
-
-.container-top {
-    position: absolute;
-	font-weight: bold;
-    width: 100%;
-    height: 60px;
-    background-color: #B1B1B1;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    color: #fff;
-    font-weight: bold;
-    padding: 5%;
-    font-size: calc(15px + 1vh);
-    font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
-}
-.container img {
-    width: 250px;
-    height: 180px; /* Ustawienie stałego rozmiaru */
-    object-fit: cover; /* Dopasowanie obrazka do pustego miejsca */
-    position: absolute; /* Ustawienie pozycji absolutnej */
-    bottom: 60px; /* Odległość od dolnej belki */
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.container-bottom {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    background-color: #B1B1B1;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    color: #fff; /* Kolor tekstu */
-    font-weight: bold; /* Pogrubienie tekstu */
-    padding: 2%; /* Dodanie wypełnienia wokół tekstu */
-    font-size: calc(15px + 1vh); /* Wielkość czcionki - proporcjonalna do wysokości kontenera */
-	font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
-}
-
-.footer-text {
-    color: #fff; /* Kolor tekstu */
-    font-weight: bold; /* Pogrubienie tekstu */
-    margin: 8px; /* Dodanie marginesu wokół tekstu */
-    padding: 2%; /* Dodanie wypełnienia wokół tekstu */
-    font-size: 15px; /* Wielkość czcionki - proporcjonalna do wysokości kontenera */
-}
-
-@media screen and (max-width: 750px) {
-    .container {
-        width: 250px; /* Maksymalna szerokość kontenera */
-        margin: 2% 2% 15px 2%; /* Marginesy: góra, prawo, dół, lewo */
-    }
-}
-</style>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
 </head>
-
 <body>
 
+    <div class="top-bar">
+        <div class="social-icons">
+            <a href="https://www.facebook.com/"><img src="facebook_icon.png" alt="Facebook"></a>
+        </div>
+        <div class="brand-name">KWW Piotr Remiszewski</div>
+    </div>
+
+
 <div class="container">
-    <a href="https://www.strona1.pl">
+
         <div class="container-top">
             <div class="circle">OKRĘG 1</div>
         </div>
@@ -110,183 +28,184 @@
         <div class="container-bottom">
             <div class="footer-text">ZOFIA WOLEK</div>
         </div>
+
+</div>
+<div class="container">
+    <a href="https://www.strona2.pl">
+        <div class="container-top">
+            <div class="circle">OKRĘG 2</div>
+        </div>
+        <div class="container-footer">
+            <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 2">
+        </div>
+        <div class="container-bottom">
+            <div class="footer-text">PIOTR HABRZYK</div>
+        </div>
     </a>
-</div>
-<div class="container">
-<a href="https://www.strona2.pl">
-    <div class="container-top">
-        <div class="circle">OKRĘG 2</div>
     </div>
-    <div class="container-footer">
-        <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 2">
+    
+    <div class="container">
+    <a href="https://www.strona3.pl">
+        <div class="container-top">
+            <div class="circle">OKRĘG 3</div>
+        </div>
+        <div class="container-footer">
+             <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 3">
+        </div>
+        <div class="container-bottom">
+            <div class="footer-text">EWA SMYK</div>
+            
+        </div>
+    </a>
     </div>
-    <div class="container-bottom">
-        <div class="footer-text">PIOTR HABRZYK</div>
+    <div class="container">
+    
+    <a href="https://www.strona4.pl">
+        <div class="container-top">
+            <div class="circle">OKRĘG 4</div>
+        </div>
+        <div class="container-footer">
+            <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 4">
+        </div>
+        <div class="container-bottom">
+            <div class="footer-text">ANDRZEJ KALETA</div>
+            
+        </div>
+    </a>
     </div>
-</a>
-</div>
+    
+    <div class="container">
+    <a href="https://www.strona5.pl">
+        <div class="container-top">
+            <div class="circle">OKRĘG 5</div>
+        </div>
+        <div class="container-footer">
+            <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 5">
+        </div>
+        <div class="container-bottom">
+            <div class="footer-text">KRZYSZTOF OŁPIŃSKI</div>
+              </div>
+    </a>
+    </div>
+    <div class="container">
+        <div class="container-top">
+            <div class="circle">OKRĘG 6</div>
+        </div>
+        <div class="container-footer">
+            <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 6">
+        </div>
+        <div class="container-bottom">
+            <div class="footer-text">SEBASTIAN BRZEZIŃSKI</div>
+            
+        </div>
+    </div>
+    <div class="container">
+        <div class="container-top">
+            <div class="circle">OKRĘG 7</div>
+        </div>
+        <div class="container-footer">
+            <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 7">
+        </div>
+        <div class="container-bottom">
+              <div class="footer-text">JADWIGA MAJCHRZAK</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="container-top">
+            <div class="circle">OKRĘG 8</div>
+        </div>
+        <div class="container-footer">
+            <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 8">
+        </div>
+        <div class="container-bottom">
+              <div class="footer-text">ZENON ŁAWRYNOWICZ</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="container-top">
+            <div class="circle">OKRĘG 9</div>
+        </div>
+        <div class="container-footer">
+            <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 9">
+        </div>
+        <div class="container-bottom">
+              <div class="footer-text">STANISŁAW BORKOWSKI</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="container-top">
+            <div class="circle">OKRĘG 10</div>
+        </div>
+        <div class="container-footer">
+            <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 10">
+        </div>
+        <div class="container-bottom">
+              <div class="footer-text">IWONA DORNANOWICZ</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="container-top">
+            <div class="circle">OKRĘG 11</div>
+        </div>
+        <div class="container-footer">
+            <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 11">
+        </div>
+        <div class="container-bottom">
+              <div class="footer-text">SZYMON KALBARCZYK</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="container-top">
+            <div class="circle">OKRĘG 12</div>
+        </div>
+        <div class="container-footer">
+            <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 12">
+        </div>
+        <div class="container-bottom">
+              <div class="footer-text">SŁAWOMIRA LATEK</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="container-top">
+            <div class="circle">OKRĘG 13</div>
+        </div>
+        <div class="container-footer">
+            <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 13">
+        </div>
+        <div class="container-bottom">
+              <div class="footer-text">MAŁGORZATA MODZELEWSKA</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="container-top">
+            <div class="circle">OKRĘG 14</div>
+        </div>
+        <div class="container-footer">
+            <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 14">
+        </div>
+        <div class="container-bottom">
+              <div class="footer-text">ANDRZEJ KALETA</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="container-top">
+            <div class="circle">OKRĘG 15</div>
+        </div>
+        <div class="container-footer">
+            <img src="https://github.com/brzezinskisebastian/brzezinskisebastian.github.io/blob/main/elwira.jpg?raw=true" alt="Zdjęcie 15">
+        </div>
+        <div class="container-bottom">
+            <div class="footer-text">ELWIRA NOWAKOWSKA-MICHALSKA</div>
+        </div>
+    </div>
 
-<div class="container">
-<a href="https://www.strona3.pl">
-    <div class="container-top">
-        <div class="circle">OKRĘG 3</div>
-    </div>
-    <div class="container-footer">
-         <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 3">
-    </div>
-    <div class="container-bottom">
-        <div class="footer-text">EWA SMYK</div>
-        
-    </div>
-</a>
-</div>
-<div class="container">
-
-<a href="https://www.strona4.pl">
-    <div class="container-top">
-        <div class="circle">OKRĘG 4</div>
-    </div>
-    <div class="container-footer">
-        <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 4">
-    </div>
-    <div class="container-bottom">
-        <div class="footer-text">ANDRZEJ KALETA</div>
-        
-    </div>
-</a>
-</div>
-
-<div class="container">
-<a href="https://www.strona5.pl">
-    <div class="container-top">
-        <div class="circle">OKRĘG 5</div>
-    </div>
-    <div class="container-footer">
-        <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 5">
-    </div>
-    <div class="container-bottom">
-        <div class="footer-text">KRZYSZTOF OŁPIŃSKI</div>
-          </div>
-</a>
-</div>
-<div class="container">
-    <div class="container-top">
-        <div class="circle">OKRĘG 6</div>
-    </div>
-    <div class="container-footer">
-        <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 6">
-    </div>
-    <div class="container-bottom">
-        <div class="footer-text">SEBASTIAN BRZEZIŃSKI</div>
-        
-    </div>
-</div>
-<div class="container">
-    <div class="container-top">
-        <div class="circle">OKRĘG 7</div>
-    </div>
-    <div class="container-footer">
-        <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 7">
-    </div>
-    <div class="container-bottom">
-          <div class="footer-text">JADWIGA MAJCHRZAK</div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="container-top">
-        <div class="circle">OKRĘG 8</div>
-    </div>
-    <div class="container-footer">
-        <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 8">
-    </div>
-    <div class="container-bottom">
-          <div class="footer-text">ZENON ŁAWRYNOWICZ</div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="container-top">
-        <div class="circle">OKRĘG 9</div>
-    </div>
-    <div class="container-footer">
-        <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 9">
-    </div>
-    <div class="container-bottom">
-          <div class="footer-text">STANISŁAW BORKOWSKI</div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="container-top">
-        <div class="circle">OKRĘG 10</div>
-    </div>
-    <div class="container-footer">
-        <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 10">
-    </div>
-    <div class="container-bottom">
-          <div class="footer-text">IWONA DORNANOWICZ</div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="container-top">
-        <div class="circle">OKRĘG 11</div>
-    </div>
-    <div class="container-footer">
-        <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 11">
-    </div>
-    <div class="container-bottom">
-          <div class="footer-text">SZYMON KALBARCZYK</div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="container-top">
-        <div class="circle">OKRĘG 12</div>
-    </div>
-    <div class="container-footer">
-        <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 12">
-    </div>
-    <div class="container-bottom">
-          <div class="footer-text">SŁAWOMIRA LATEK</div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="container-top">
-        <div class="circle">OKRĘG 13</div>
-    </div>
-    <div class="container-footer">
-        <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 13">
-    </div>
-    <div class="container-bottom">
-          <div class="footer-text">MAŁGORZATA MODZELEWSKA</div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="container-top">
-        <div class="circle">OKRĘG 14</div>
-    </div>
-    <div class="container-footer">
-        <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 14">
-    </div>
-    <div class="container-bottom">
-          <div class="footer-text">ANDRZEJ KALETA</div>
-    </div>
-</div>
-<div class="container">
-    <div class="container-top">
-        <div class="circle">OKRĘG 15</div>
-    </div>
-    <div class="container-footer">
-        <img src="https://javiermestre.es/wp-content/uploads/2023/05/Javier-Mestre3.jpg" alt="Zdjęcie 15">
-    </div>
-    <div class="container-bottom">
-        <div class="footer-text">ELWIRA NOWAKOWSKA-MICHALSKA</div>
-    </div>
-</div>
-
+<script src="script.js"></script>
 </body>
 </html>
