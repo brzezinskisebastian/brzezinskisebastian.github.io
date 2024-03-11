@@ -5,21 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Strona do nauki</title>
 <style>
-    body {
-	
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        text-align: center; /* Wycenrtuj treść w obszarze body */
-    }
-    .container {
-        width: 250px;
-        margin: 10px;
-        border: 1px solid #000;
-        padding: 20px;
-        display: inline-block; /* Użyj display: inline-block, aby kontenery były ułożone obok siebie */
-        vertical-align: top; /* Ustawienie pionowego wyrównania na górę, aby kontenery miały jednakową wysokość */
-    }
+   body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Wycentruj treść w obszarze body */
+}
+
+.container {
+    width: 250px;
+    margin: 10px;
+    padding: 20px;
+    display: inline-block; /* Użyj display: inline-block, aby kontenery były ułożone obok siebie */
+    vertical-align: top; /* Ustawienie pionowego wyrównania na górę, aby kontenery miały jednakową wysokość */
+    border: none; /* Usunięcie granicy, aby móc stosować własne zaokrąglenie rogów */
+    border-radius: 10px; /* Zaokrąglenie rogów kontenera */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Dodanie cienia */
+}
 
 /* Media query dla urządzeń o szerokości mniejszej niż 750px (np. telefony) */
 @media only screen and (max-width: 750px) {
