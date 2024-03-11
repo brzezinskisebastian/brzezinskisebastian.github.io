@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    
+    margin: 2% 0 0 0; /* Marginesy: góra, prawo, dół, lewo */
+    padding: 0;
+    text-align: center; /* Wycentruj treść w obszarze body */
+    background-color: #fff; /* Delikatna szarość */
+}
+
+.top-bar {
+    background-color: #B1B1B1; /* Kolor paska */
+    height: 60px; /* Wysokość paska */
+    width: 100%; /* Szerokość równa szerokości okna przeglądarki */
+    position: fixed; /* Przypięcie do górnej krawędzi okna */
+    top: 0; /* Odległość od górnej krawędzi */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px; /* Wewnętrzny odstęp */
+    z-index: 999; /* Warstwa z indeksem, aby pasek był na wierzchu */
+    transition: top 0.3s; /* Płynne przejście podczas zmiany pozycji */
+}
+
+.social-icons img {
+    width: 30px; /* Rozmiar ikonki */
+    height: auto;
+}
+
+.brand-name {
+    color: #fff; /* Kolor tekstu */
+    font-size: 20px; /* Rozmiar czcionki */
+}
+.container {
+    margin-top: 80px; /* Dodanie marginesu na górze kontenera */
+    background-color: #FFFFFF; /* Kolor tła kontenera */
+    width: 250px;
+    height: 300px; /* Wysokość kontenera */
+    margin: 10px;
+    transition: height 2s ease;
+    display: inline-block; /* Użyj display: inline-block, aby kontenery były ułożone obok siebie */
+    vertical-align: top; /* Ustawienie pionowego wyrównania na górę, aby kontenery miały jednakową wysokość */
+    border: none; /* Usunięcie granicy, aby móc stosować własne zaokrąglenie rogów */
+    border-radius: 10px; /* Zaokrąglenie rogów kontenera */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Dodanie cienia */
+    position: relative; /* Ustawienie pozycji względnej, aby móc pozycjonować element wewnątrz */
+    transition: transform 0.2s; /* Dodaj płynne przejście dla transformacji */
+    overflow: hidden; /* Ukryj elementy, które nie mieszczą się w kontenerze */
+    cursor: pointer; /* Zmień kursor na wskaźnik, aby pokazać, że kontener jest klikalny */
+}
+
+
+
+
+.container:hover {
+    transform: scale(1.1); /* Powiększenie kontenera przy najechaniu myszką */
+}
+
+.container-top {
+    position: absolute;
+    font-weight: bold;
+    width: 100%;
+    height: 60px;
+    background-color: #B1B1B1;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    color: #fff;
+    font-weight: bold;
+    padding: 5%;
+    font-size: calc(15px + 1vh);
+    font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+.container img {
+    width: 250px;
+    height: 180px; /* Ustawienie stałego rozmiaru */
+    object-fit: cover; /* Dopasowanie obrazka do pustego miejsca */
+    position: absolute; /* Ustawienie pozycji absolutnej */
+    bottom: 60px; /* Odległość od dolnej belki */
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #B1B1B1;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    color: #fff; /* Kolor tekstu */
+    font-weight: bold; /* Pogrubienie tekstu */
+    padding: 2%; /* Dodanie wypełnienia wokół tekstu */
+    font-size: calc(15px + 1vh); /* Wielkość czcionki - proporcjonalna do wysokości kontenera */
+    font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+}
+
+.footer-text {
+    color: #fff; /* Kolor tekstu */
+    font-weight: bold; /* Pogrubienie tekstu */
+    margin: 8px; /* Dodanie marginesu wokół tekstu */
+    padding: 2%; /* Dodanie wypełnienia wokół tekstu */
+    font-size: 15px; /* Wielkość czcionki - proporcjonalna do wysokości kontenera */
+}
+
+@media screen and (max-width: 750px) {
+    .container {
+        width: 250px; /* Maksymalna szerokość kontenera */
+        margin: 2% 2% 15px 2%; /* Marginesy: góra, prawo, dół, lewo */
+        margin-top: 10px; /* Dostosuj margines górny dla mniejszych ekranów */
+    }
+}
