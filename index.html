@@ -1,236 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strona z kontenerami</title>
-    <style>
-        body {
-            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-            margin: 0 auto;
-            max-width: 1200px;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-
-        .container {
-    width: 23%;
-    margin: 1%;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    float: left;
-    transition: all 0.3s ease;
-    box-sizing: border-box; /* Dodaj box-sizing: border-box */
-}
-
-
-        .container img {
-            width: 100%;
-            height: auto;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-
-        .container .content {
-            padding: 10px;
-            height: 120px;
-            overflow: hidden;
-        }
-
-        .container .content h2 {
-            margin: 0;
-        }
-
-        .container .content h3 {
-            margin: 0;
-            font-size: 16px;
-            color: #666;
-        }
-
-        .container .content p {
-            margin: 0;
-        }
-
-        
-        @media (max-width: 768px) {
-    .container {
-        width:  100%; /* Zmniejsz szerokość kontenerów na urządzeniach mobilnych */
-        margin-left: 10px; /* Dodaj odstęp od lewej krawędzi ekranu */
-        margin-right: 10px; /* Dodaj odstęp od prawej krawędzi ekranu */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strona do nauki</title>
+<style>
+    body {
+	
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center; /* Wycenrtuj treść w obszarze body */
     }
-}
+    .container {
+        width: 250px;
+        margin: 10px;
+        border: 1px solid #000;
+        padding: 20px;
+        display: inline-block; /* Użyj display: inline-block, aby kontenery były ułożone obok siebie */
+        vertical-align: top; /* Ustawienie pionowego wyrównania na górę, aby kontenery miały jednakową wysokość */
+    }
 
-
-    </style>
-</head>
-<body>
-
-    <div class="container"  onclick="toggleContainer(this)">
-        <img src="https://brzezinskisebastian.github.io/okreg1.png" alt="Person 1">
-        <div class="content">
-            <p>Kandyduję na radną z okręgu nr 1. Urodziłam się w Milanówku w 1970r. Jestem mamą 6-tki dzieci, 19-lat temu zamieszkałam u męża w Milanówku. Razem prowadziliśmy sklepik i małe gospodarstwo rolne.
-                Doswiadczenie które zdobyłam pozwoliło mi zżyć się z naszą społecznością i poznać jej potrzeby. Obecnie pomagam osobom starszym i potrzebującym w Milanówku. Moje celem jest być Waszą Radną i zaradną na potrzeby Wasze na które jestem otwarta. Licze że dn.7-04-2024 będziemy Razem Wspierać Milanówek w jego Rozwoju.</p>
-        </div>
-    </div>
-    
-    <div class="container">
-        <img src="https://via.placeholder.com/400x300" alt="Person 2">
-        <div class="content">
-            <h2>Okręg 2</h2>
-            <h3>Piotr Habrzyk</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </div>
-    
-    <div class="container">
-        <img src="https://via.placeholder.com/400x300" alt="Person 3">
-        <div class="content">
-            <h2>Okręg 3</h2>
-            <h3>Ewa Smyk</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </div>
-    
-    <div class="container">
-        <img src="https://via.placeholder.com/400x300" alt="Person 4">
-        <div class="content">
-            <h2>Okręg 4</h2>
-            <h3>Andrzej Kaleta</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </div>
-    <div class="container">
-        <img src="https://via.placeholder.com/400x300" alt="Person 1">
-        <div class="content">
-            <h2>Okręg 5</h2>
-            <h3>Krzysztof Ołpiński</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </div>
-    
-    <div class="container">
-        <img src="https://via.placeholder.com/400x300" alt="Person 2">
-        <div class="content">
-            <h2>Okręg 6</h2>
-            <h3>Sebastian Brzeziński</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </div>
-    
-    <div class="container">
-        <img src="https://via.placeholder.com/400x300" alt="Person 3">
-        <div class="content">
-            <h2>Okręg 7</h2>
-            <h3>Jadwiga Majchrzak</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </div>
-    
-    <div class="container">
-        <img src="https://via.placeholder.com/400x300" alt="Person 4">
-        <div class="content">
-            <h2>Okręg 8</h2>
-            <h3>Zenon Ławrynowicz</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </div>
-
-    <div class="container">
-        <img src="https://via.placeholder.com/400x300" alt="Person 1">
-        <div class="content">
-            <h2>Okręg 9</h2>
-            <h3>Stanisław Borkowski</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </div>
-    
-    <div class="container">
-        <img src="https://via.placeholder.com/400x300" alt="Person 2">
-        <div class="content">
-            <h2>Okręg 10</h2>
-            <h3>Iwona Dornarowicz</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </div>
-    
-    <div class="container">
-        <img src="https://via.placeholder.com/400x300" alt="Person 3">
-        <div class="content">
-            <h2>Okręg 11</h2>
-            <h3>Szymob Kalbarczyk</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </div>
-    
-    <div class="container">
-        <img src="https://via.placeholder.com/400x300" alt="Person 4">
-        <div class="content">
-            <h2>Okręg 12</h2>
-            <h3>Sławomira Latek</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </div>
-
-    <div class="container">
-        <img src="https://via.placeholder.com/400x300" alt="Person 2">
-        <div class="content">
-            <h2>Okręg 13</h2>
-            <h3>Małgorzata Modzelewska</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </div>
-    
-    <div class="container">
-        <img src="https://via.placeholder.com/400x300" alt="Person 3">
-        <div class="content">
-            <h2>Okręg 14</h2>
-            <h3>Tadeusz Czubek</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </div>
-    
-    <div class="container">
-        <img src="https://via.placeholder.com/400x300" alt="Person 4">
-        <div class="content">
-            <h2>Okręg 15</h2>
-            <h3>Elwira Nowakowska-Michalska</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </div>
-
-    <script>
-        function toggleContainer(container) {
-            container.classList.toggle('expanded');
-            var containers = document.querySelectorAll('.container');
-            containers.forEach(function(cont) {
-                if (cont !== container && cont.classList.contains('expanded')) {
-                    cont.classList.remove('expanded');
-                }
-            });
+	  /* Media query dla urządzeń o szerokości mniejszej niż 768px (np. telefony) */
+   		 @media only screen and (max-width: 768px) {
+       		 .container {
+          	  width: 90%; /* Zmniejsz szerokość kontenerów na urządzeniach mobilnych */
+           	 margin: 10px auto; /* Wycentruj kontenery na urządzeniach mobilnych */
         }
-    
-        // Dodaj zdarzenie do zwijania kontenerów po kliknięciu gdzie indziej na stronie
-        window.addEventListener('click', function(event) {
-            var containers = document.querySelectorAll('.container');
-            var target = event.target;
-            var isContainer = false;
-            while (target) {
-                if (target.classList && target.classList.contains('container')) {
-                    isContainer = true;
-                    break;
-                }
-                target = target.parentNode;
-            }
-    
-            if (!isContainer) {
-                containers.forEach(function(cont) {
-                    cont.classList.remove('expanded');
-                });
-            }
-        });
-    </script>
+    }
+</style>
+</head>
 
-    </body>
-    </html>
+<body>
+<div class="container">
+    <h1>Kontener 1</h1>
+    <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+</div>
+<div class="container">
+    <h1>Kontener 2</h1>
+    <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+</div>
+<div class="container">
+    <h1>Kontener 3</h1>
+    <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+</div>
+<div class="container">
+    <h1>Kontener 4</h1>
+    <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+</div>
+<div class="container">
+    <h1>Kontener 5</h1>
+    <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+</div>
+<div class="container">
+    <h1>Kontener 6</h1>
+    <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+</div>
+<div class="container">
+    <h1>Kontener 7</h1>
+    <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+</div>
+<div class="container">
+    <h1>Kontener 8</h1>
+    <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+</div>
+<div class="container">
+    <h1>Kontener 9</h1>
+    <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+</div>
+<div class="container">
+    <h1>Kontener 10</h1>
+    <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+</div>
+<div class="container">
+    <h1>Kontener 11</h1>
+    <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+</div>
+<div class="container">
+    <h1>Kontener 12</h1>
+    <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+</div>
+<div class="container">
+    <h1>Kontener 13</h1>
+    <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+</div>
+<div class="container">
+    <h1>Kontener 14</h1>
+    <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+</div>
+<div class="container">
+    <h1>Kontener 15</h1>
+    <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+</div>
+
+</body>
+</html>
