@@ -21,12 +21,12 @@
         vertical-align: top; /* Ustawienie pionowego wyrównania na górę, aby kontenery miały jednakową wysokość */
     }
 
-	  /* Media query dla urządzeń o szerokości mniejszej niż 768px (np. telefony) */
 @media only screen and (max-width: 750px) {
     .container {
         max-width: 90%; /* Maksymalna szerokość kontenerów na urządzeniach mobilnych */
         width: auto; /* Ustawienie szerokości na auto, aby kontenery mogły się dostosować do różnych szerokości ekranu */
         margin: 10px auto; /* Wycentrowanie kontenerów na urządzeniach mobilnych */
+        display: block; /* Ustawienie kontenerów na układ w kolumnach na mniejszych ekranach */
     }
 }
 </style>
