@@ -22,12 +22,13 @@
     }
 
 	  /* Media query dla urządzeń o szerokości mniejszej niż 768px (np. telefony) */
-   		 @media only screen and (max-width: 768px) {
-       		 .container {
-          	  width: 90%; /* Zmniejsz szerokość kontenerów na urządzeniach mobilnych */
-           	 margin: 20px auto; /* Wycentruj kontenery na urządzeniach mobilnych */
-        }
+@media only screen and (max-width: 768px) {
+    .container {
+        max-width: 90%; /* Maksymalna szerokość kontenerów na urządzeniach mobilnych */
+        width: auto; /* Ustawienie szerokości na auto, aby kontenery mogły się dostosować do różnych szerokości ekranu */
+        margin: 10px auto; /* Wycentrowanie kontenerów na urządzeniach mobilnych */
     }
+}
 </style>
 </head>
 
