@@ -16,88 +16,149 @@
 .container {
     background-color: #FFFFFF; /* Kolor tła kontenera */
     width: 250px;
-    height: 280px; /* Wysokość kontenera */
+    height: 300px; /* Wysokość kontenera */
     margin: 10px;
-    padding: 20px;
+
     display: inline-block; /* Użyj display: inline-block, aby kontenery były ułożone obok siebie */
     vertical-align: top; /* Ustawienie pionowego wyrównania na górę, aby kontenery miały jednakową wysokość */
     border: none; /* Usunięcie granicy, aby móc stosować własne zaokrąglenie rogów */
     border-radius: 10px; /* Zaokrąglenie rogów kontenera */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Dodanie cienia */
+    position: relative; /* Ustawienie pozycji względnej, aby móc pozycjonować element wewnątrz */
 }
 
-/* Media query dla urządzeń o szerokości mniejszej niż 750px (np. telefony) */
-@media only screen and (max-width: 750px) {
-    .container {
-        max-width: 90%; /* Maksymalna szerokość kontenerów na urządzeniach mobilnych */
-        width: auto; /* Ustawienie szerokości na auto, aby kontenery mogły się dostosować do różnych szerokości ekranu */
-        margin: 10px 5%; /* Ustawienie marginesów od lewej i prawej strony na 5% szerokości ekranu */
-        display: block; /* Ustawienie kontenerów na układ w kolumnach na mniejszych ekranach */
-    }
+.container-footer {
+    position: absolute; /* Ustawienie pozycji absolutnej względem kontenera */
+    bottom: 0; /* Umieszczenie elementu na samym dole kontenera */
+    width: 100%; /* Szerokość równa szerokości kontenera */
+    height: 30%; /* Wysokość 30% kontenera */
+    background-color: #5E05D2;
+    border-bottom-left-radius: 10px; /* Zaokrąglenie lewego dolnego rogu */
+    border-bottom-right-radius: 10px; /* Zaokrąglenie prawego dolnego rogu */
+    display: flex; /* Ustawienie kontenera na układ flexbox */
+    flex-direction: column; /* Ustawienie układu kolumnowego */
+    justify-content: center; /* Wycentrowanie zawartości w pionie */
+    align-items: center; /* Wycentrowanie zawartości w poziomie */
+    box-sizing: border-box; /* Zastosowanie marginesów i paddingu do wysokości elementu */
+}
+
+.footer-text {
+    color: #fff; /* Kolor tekstu */
+    font-weight: bold; /* Pogrubienie tekstu */
+    margin: 5px; /* Dodanie marginesu wokół tekstu */
 }
 </style>
 </head>
 
 <body>
+
 <div class="container">
     <h1>Kontener 1</h1>
     <p>Pierwszy</p>
+    <div class="container-footer">
+        <div class="footer-text">Imię i Nazwisko</div>
+        <div class="footer-text">Drugie imię</div>
+    </div>
 </div>
 <div class="container">
     <h1>Kontener 2</h1>
     <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+    <div class="container-footer">
+        <div class="footer-text">Imię i Nazwisko</div>
+        <div class="footer-text">Drugie imię</div>
+    </div>
 </div>
+
 <div class="container">
     <h1>Kontener 3</h1>
     <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+    <div class="container-footer">
+        <div class="footer-text">Imię i Nazwisko</div>
+    </div>
 </div>
 <div class="container">
     <h1>Kontener 4</h1>
     <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+    <div class="container-footer">
+        <div class="footer-text">Imię i Nazwisko</div>
+    </div>
 </div>
 <div class="container">
     <h1>Kontener 5</h1>
     <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+    <div class="container-footer">
+        <div class="footer-text">Imię i Nazwisko</div>
+    </div>
 </div>
 <div class="container">
     <h1>Kontener 6</h1>
     <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+    <div class="container-footer">
+        <div class="footer-text">Imię i Nazwisko</div>
+    </div>
 </div>
 <div class="container">
     <h1>Kontener 7</h1>
     <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+    <div class="container-footer">
+        <div class="footer-text">Imię i Nazwisko</div>
+    </div>
 </div>
 <div class="container">
     <h1>Kontener 8</h1>
     <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+    <div class="container-footer">
+        <div class="footer-text">Imię i Nazwisko</div>
+    </div>
 </div>
 <div class="container">
     <h1>Kontener 9</h1>
     <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+    <div class="container-footer">
+        <div class="footer-text">Imię i Nazwisko</div>
+    </div>
 </div>
 <div class="container">
     <h1>Kontener 10</h1>
     <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+    <div class="container-footer">
+        <div class="footer-text">Imię i Nazwisko</div>
+    </div>
 </div>
 <div class="container">
     <h1>Kontener 11</h1>
     <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+    <div class="container-footer">
+        <div class="footer-text">Imię i Nazwisko</div>
+    </div>
 </div>
 <div class="container">
     <h1>Kontener 12</h1>
     <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+    <div class="container-footer">
+        <div class="footer-text">Imię i Nazwisko</div>
+    </div>
 </div>
 <div class="container">
     <h1>Kontener 13</h1>
     <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+    <div class="container-footer">
+        <div class="footer-text">Imię i Nazwisko</div>
+    </div>
 </div>
 <div class="container">
     <h1>Kontener 14</h1>
     <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+    <div class="container-footer">
+        <div class="footer-text">Imię i Nazwisko</div>
+    </div>
 </div>
 <div class="container">
     <h1>Kontener 15</h1>
     <p>Witaj na stronie do nauki! Tutaj znajdziesz wiele przydatnych materiałów do nauki.</p>
+    <div class="container-footer">
+        <div class="footer-text">Imię i Nazwisko</div>
+    </div>
 </div>
 
 </body>
