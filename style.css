@@ -22,8 +22,8 @@ body {
 }
 
 .social-icons img {
-    width: 30px; /* Rozmiar ikonki */
-    height: auto;
+    width: 40px; /* Zwiększenie szerokości ikony */
+    height: auto; /* Automatyczne dostosowanie wysokości */
 }
 
 .brand-name {
