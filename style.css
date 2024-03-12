@@ -41,7 +41,7 @@ body {
     vertical-align: top; /* Ustawienie pionowego wyrównania na górę, aby kontenery miały jednakową wysokość */
     border: none; /* Usunięcie granicy, aby móc stosować własne zaokrąglenie rogów */
     border-radius: 10px; /* Zaokrąglenie rogów kontenera */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Dodanie cienia */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Dodanie cienia */
     position: relative; /* Ustawienie pozycji względnej, aby móc pozycjonować element wewnątrz */
     transition: transform 0.2s; /* Dodaj płynne przejście dla transformacji */
     overflow: hidden; /* Ukryj elementy, które nie mieszczą się w kontenerze */
