@@ -1,3 +1,4 @@
+// displayUpdates.js
 // Pobieranie aktualności z bazy danych i wyświetlanie na stronie
 const updatesList = document.getElementById('updates-list');
 const db = firebase.database();

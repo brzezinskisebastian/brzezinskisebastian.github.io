@@ -1,3 +1,4 @@
+// addUpdate.js
 // Obsługa dodawania nowej aktualności po submit formularza
 const addUpdateForm = document.getElementById('add-update-form');
 
