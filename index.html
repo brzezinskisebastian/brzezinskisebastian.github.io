@@ -26,16 +26,58 @@
             padding: 10px;
             margin-bottom: 10px;
         }
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
     <h1>Aktualności</h1>
     <ul id="updates-list"></ul>
 
+    <h2>Dodaj nową aktualizację</h2>
+    <form id="add-update-form">
+        <label for="title">Tytuł:</label>
+        <input type="text" id="title" name="title" required>
+        
+        <label for="content">Treść:</label>
+        <textarea id="content" name="content" rows="4" required></textarea>
+
+        <button type="submit">Dodaj</button>
+    </form>
+
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
     <script src="firebaseConfig.js"></script> <!-- Plik konfiguracyjny Firebase -->
     <script src="displayUpdates.js"></script> <!-- Skrypt do wyświetlania aktualności -->
+    <script src="addUpdate.js"></script> <!-- Skrypt do dodawania aktualności -->
 </body>
 </html>
