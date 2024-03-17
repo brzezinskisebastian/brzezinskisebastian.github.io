@@ -34,35 +34,7 @@
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
-    <script>
-const firebaseConfig = {
-  apiKey: "AIzaSyCJSsZKeXxo0MygqT-_XrNaLUCVIMxKXCc",
-  authDomain: "aktualnosci-3f338.firebaseapp.com",
-  databaseURL: "https://aktualnosci-3f338-default-rtdb.firebaseio.com",
-  projectId: "aktualnosci-3f338",
-  storageBucket: "aktualnosci-3f338.appspot.com",
-  messagingSenderId: "1254292862",
-  appId: "1:1254292862:web:630a2ed936d40dd959472f"
-};
-        firebase.initializeApp(firebaseConfig);
-
-        // Pobieramy referencję do listy aktualizacji
-        const updatesList = document.getElementById('updates-list');
-
-        // Referencja do bazy danych Firebase
-        const db = firebase.database();
-
-        // Pobieramy aktualizacje z bazy danych i wyświetlamy na stronie
-        db.ref('updates').on('value', snapshot => {
-            updatesList.innerHTML = ''; // Czyścimy listę przed dodaniem aktualizacji
-            snapshot.forEach(childSnapshot => {
-                const update = childSnapshot.val();
-                const updateElement = document.createElement('li');
-                updateElement.classList.add('update');
-                updateElement.innerHTML = `<h3>${update.title}</h3><p>${update.content}</p>`;
-                updatesList.appendChild(updateElement);
-            });
-        });
-    </script>
+    <script src="firebaseConfig.js"></script> <!-- Plik konfiguracyjny Firebase -->
+    <script src="displayUpdates.js"></script> <!-- Skrypt do wyświetlania aktualności -->
 </body>
 </html>
