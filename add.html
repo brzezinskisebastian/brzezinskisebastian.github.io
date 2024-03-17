@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodaj aktualizację</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dodaj nową aktualizację</h1>
+    <form id="add-update-form">
+        <label for="title">Tytuł:</label>
+        <input type="text" id="title" name="title" required>
+        
+        <label for="content">Treść:</label>
+        <textarea id="content" name="content" rows="4" required></textarea>
+
+        <button type="submit">Dodaj</button>
+    </form>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+    <script>
+        const firebaseConfig = {
+  apiKey: "AIzaSyCJSsZKeXxo0MygqT-_XrNaLUCVIMxKXCc",
+  authDomain: "aktualnosci-3f338.firebaseapp.com",
+  projectId: "aktualnosci-3f338",
+  storageBucket: "aktualnosci-3f338.appspot.com",
+  messagingSenderId: "1254292862",
+  appId: "1:1254292862:web:630a2ed936d40dd959472f"
+};
+        firebase.initializeApp(firebaseConfig);
+
+        const addUpdateForm = document.getElementById('add-update-form');
+
+        addUpdateForm.addEventListener('submit', e => {
+            e.preventDefault(); // Zapobiegamy domyślnej akcji formularza
+
+            const title = addUpdateForm['title'].value;
+            const content = addUpdateForm['content'].value;
+
+            // Referencja do kolekcji "updates" w bazie danych Firebase
+            const updatesRef = firebase.database().ref('updates');
+
+            // Dodajemy nową aktualizację do bazy danych
+            updatesRef.push({
+                title: title,
+                content: content
+            })
+            .then(() => {
+                // Aktualizacja dodana pomyślnie
+                console.log('Nowa aktualizacja została dodana!');
+                // Wyczyść pola formularza
+                addUpdateForm.reset();
+                // Poinformuj użytkownika o sukcesie
+                alert('Nowa aktualizacja została dodana!');
+            })
+            .catch(error => {
+                // Wystąpił błąd podczas dodawania aktualizacji
+                console.error('Błąd dodawania aktualizacji:', error);
+                // Wyświetlenie komunikatu o błędzie
+                alert('Błąd dodawania aktualizacji. Spróbuj ponownie.');
+            });
+        });
+    </script>
+</body>
+</html>
