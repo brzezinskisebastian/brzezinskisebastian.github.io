@@ -8,15 +8,12 @@ h1 {
     text-align: center;
     font-size: 18px;
 }
-h2 {
-    font-size: 15px;
-    text-align: center;
-}
-#updates-list {
-    max-width: 500px;
+#updates-list {   
+    max-width: 400px;
     margin: 20px auto;
     padding: 0;
     list-style-type: none;
+    border: 1px solid #ccc;
 }
 .update {
     border: 1px solid #ccc;
@@ -26,10 +23,9 @@ h2 {
     
 }
 form {
-    max-width: 400px;
+    max-width: 362px;
     margin: 20px auto;
     padding: 20px;
-    border: 0px solid #ccc;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
@@ -41,8 +37,6 @@ label {
 input[type="text"],
 textarea {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
