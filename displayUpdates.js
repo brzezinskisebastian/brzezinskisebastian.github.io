@@ -9,7 +9,7 @@ db.ref('updates').on('value', snapshot => {
         const update = childSnapshot.val();
         const updateElement = document.createElement('li');
         updateElement.classList.add('update');
-        updateElement.innerHTML = `<h3>${update.title}</h3><p>${update.content}</p>`;
+        updateElement.innerHTML = `<p>${update.content}</p>`; // Usuwamy tytuł i wyświetlamy tylko treść
         updatesList.appendChild(updateElement);
     });
 });
