@@ -11,35 +11,31 @@ h1 {
     font-size: 18px;
 }
 
-#updates-list {   
-    max-width: 500px; /* Zwiększenie maksymalnej szerokości do 600px dla spójności */
+#updates-list {
+    max-width: 600px; /* Zwiększenie maksymalnej szerokości do 600px dla spójności */
     margin: 20px auto;
     padding: 0;
     list-style-type: none;
 }
 
 .update {
-    max-width: 500px; /* Zwiększenie maksymalnej szerokości do 600px dla spójności */
+    max-width: 600px; /* Zwiększenie maksymalnej szerokości do 600px dla spójności */
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
 }
 
-
 form {
-    max-width: 500px;
+    max-width: 600px;
     margin: 20px auto;
     padding: 20px;
     border-radius: 5px;
     border: 1px solid #ccc;
     display: flex; /* Ustawienie formularza jako kontenera flexbox */
     flex-direction: column; /* Ustawienie kierunku na kolumnę */
-    align-items: center; 
-    
+    align-items: center;
 }
-
-
 
 input[type="text"],
 textarea {
@@ -64,21 +60,49 @@ button {
     display: block; /* Ustawienie na blok, aby były jedno pod drugim */
     margin-bottom: 10px; /* Dodanie marginesu na dół dla odstępu między elementami */
 }
+
 button:hover {
     background-color: #f0f0f0; /* Lekko jasniejsze tło po najechaniu myszą */
 }
 
 .delete-button {
-    background-color: #f44336;
+    background-color: transparent;
     color: white;
     padding: 8px 16px;
     border: none;
     border-radius: 5px;
-    cursor: pointer; 
+    cursor: pointer;
     width: 100%; /* Pełna szerokość przycisku */
     font-size: 13px; /* Dopasowanie wielkości czcionki do górnego stylu */
 }
 
 .delete-button:hover {
-    background-color: #d32f2f; /* Ciemniejszy odcień czerwonego przy najechaniu */
+    background-color: #d32f2f;
+}
+
+/* Media query dla urządzeń o szerokości 750px */
+@media only screen and (max-width: 750px) {
+    body {
+        margin: 10px;
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 16px;
+    }
+
+    #updates-list,
+    .update,
+    form {
+        max-width: 90%;
+        margin: 10px auto;
+    }
+
+    input[type="text"],
+    textarea,
+    button,
+    .delete-button {
+        width: 100%;
+        font-size: 12px;
+    }
 }
