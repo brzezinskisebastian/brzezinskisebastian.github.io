@@ -1,23 +1,31 @@
 // addUpdate.js
+
+// Funkcja dodająca aktualizację do bazy danych
 function addUpdate() {
-    const content = document.getElementById('content').value;
+    const content = document.getElementById('content').value.trim();
 
-    const newUpdate = {
-        content: content
-    };
+    if (content !== '') {
+        const newUpdate = {
+            content: content
+        };
 
-    firebase.database().ref('updates').push(newUpdate)
-        .then(() => {
-            document.getElementById('content').value = '';
-        })
-        .catch(error => console.error(error));
-} 
-    function createUpdateElement(update, key) {
-    const updateElement = document.createElement('li');
-    updateElement.classList.add('update');
-    updateElement.innerHTML = `
-        <p>${update.content}</p>
-        <button type="button" onclick="removeUpdate('${key}')">Usuń</button>
-    `;
-    return updateElement;
+        // Dodaj aktualizację do bazy danych
+        firebase.database().ref('updates').push(newUpdate)
+            .then(() => {
+                console.log('Aktualizacja dodana pomyślnie!');
+                // Czyść pole tekstowe po dodaniu aktualizacji
+                document.getElementById('content').value = '';
+            })
+            .catch(error => {
+                console.error('Błąd dodawania aktualizacji:', error);
+            });
+    }
 }
+
+// Obsługa potwierdzania Enterem w polu tekstowym
+document.getElementById("content").addEventListener("keydown", function(event) {
+    if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault(); // Zapobiegaj domyślnej akcji (np. nowa linia w textarea)
+        addUpdate(); // Dodaj aktualizację
+    }
+});
