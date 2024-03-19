@@ -1,3 +1,4 @@
+/* Dopasowanie CSS do górnego stylu */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -11,26 +12,22 @@ h1 {
 }
 
 #updates-list {   
-    max-width: 400px;
+    max-width: 600px; /* Zwiększenie maksymalnej szerokości do 600px dla spójności */
     margin: 20px auto;
     padding: 0;
     list-style-type: none;
 }
 
 .update {
-    max-width: 365px;
+    max-width: 600px; /* Zwiększenie maksymalnej szerokości do 600px dla spójności */
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
-    display: flex; /* Ustawienie kontenera na flexbox */
-    justify-content: space-between;
-
 }
 
-
 form {
-    max-width: 362px;
+    max-width: 600px; /* Zwiększenie maksymalnej szerokości do 600px dla spójności */
     margin: 20px auto;
     padding: 20px;
     border-radius: 5px;
@@ -40,7 +37,7 @@ form {
 label {
     display: block;
     margin-bottom: 10px;
-    font-size: 15px;
+    font-size: 14px; /* Dopasowanie wielkości czcionki do górnego stylu */
 }
 
 input[type="text"],
@@ -48,20 +45,23 @@ textarea {
     width: 100%;
     border: 1px solid #ccc;
     border-radius: 5px;
+    padding: 8px; /* Zmniejszenie wypełnienia dla lepszego dopasowania */
+    font-size: 13px; /* Dopasowanie wielkości czcionki do górnego stylu */
 }
 
 button {
-    background-color: #4CAF50;
-    color: white;
+    background-color: transparent; /* Ustawienie tła na transparentne */
+    color: #333; /* Zmiana koloru tekstu na ciemniejszy odcień */
     padding: 10px 20px;
-    border: none;
+    border: 1px solid #ccc; /* Dodanie obramowania */
     border-radius: 5px;
     cursor: pointer;
-    width: 50%;
+    width: 100%; /* Pełna szerokość przycisku */
+    font-size: 13px; /* Dopasowanie wielkości czcionki do górnego stylu */
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #f0f0f0; /* Lekko jasniejsze tło po najechaniu myszą */
 }
 
 .delete-button {
@@ -71,8 +71,8 @@ button:hover {
     border: none;
     border-radius: 5px;
     cursor: pointer; 
-    width: 90px;
-    height: 30px;
+    width: 100%; /* Pełna szerokość przycisku */
+    font-size: 13px; /* Dopasowanie wielkości czcionki do górnego stylu */
 }
 
 .delete-button:hover {
