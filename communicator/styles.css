@@ -19,7 +19,7 @@ h1 {
 }
 
 .update {
-    max-width: 600px; /* Zwiększenie maksymalnej szerokości do 600px dla spójności */
+    max-width: 600px;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
@@ -65,16 +65,20 @@ button:hover {
     background-color: #f0f0f0; /* Lekko jasniejsze tło po najechaniu myszą */
 }
 
+.update-content {
+    margin-bottom: 10px;
+}
+.delete-container {
+    text-align: right;
+}
 .delete-button {
     background-color: transparent;
     color: #333;
-    padding: 10px 20px;
+    padding: 5px 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
     font-size: 13px;
-    display: block; /** Dopasowanie wielkości czcionki do górnego stylu */
 }
 
 .delete-button:hover {
