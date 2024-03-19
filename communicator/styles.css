@@ -67,17 +67,18 @@ button:hover {
 
 .delete-button {
     background-color: transparent;
-    color: white;
-    padding: 8px 16px;
-    border: none;
+    color: #333;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%; /* Pełna szerokość przycisku */
-    font-size: 13px; /* Dopasowanie wielkości czcionki do górnego stylu */
+    width: 100%;
+    font-size: 13px;
+    display: block; /** Dopasowanie wielkości czcionki do górnego stylu */
 }
 
 .delete-button:hover {
-    background-color: #d32f2f;
+    background-color: #f0f0f0;
 }
 
 /* Media query dla urządzeń o szerokości 750px */
