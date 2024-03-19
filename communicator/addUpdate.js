@@ -1,6 +1,5 @@
 // addUpdate.js
 
-// Funkcja dodająca aktualizację do bazy danych
 function addUpdate() {
     const content = document.getElementById('content').value.trim();
 
@@ -9,12 +8,10 @@ function addUpdate() {
             content: content
         };
 
-        // Dodaj aktualizację do bazy danych
         firebase.database().ref('updates').push(newUpdate)
             .then(() => {
                 console.log('Aktualizacja dodana pomyślnie!');
-                // Czyść pole tekstowe po dodaniu aktualizacji
-                document.getElementById('content').value = '';
+                document.getElementById('content').value = ''; // Czyść pole tekstowe po dodaniu aktualizacji
             })
             .catch(error => {
                 console.error('Błąd dodawania aktualizacji:', error);
@@ -22,10 +19,37 @@ function addUpdate() {
     }
 }
 
-// Obsługa potwierdzania Enterem w polu tekstowym
 document.getElementById("content").addEventListener("keydown", function(event) {
     if (event.key === "Enter" && !event.shiftKey) {
-        event.preventDefault(); // Zapobiegaj domyślnej akcji (np. nowa linia w textarea)
-        addUpdate(); // Dodaj aktualizację
+        event.preventDefault();
+        addUpdate();
     }
 });
+
+// Funkcja tworząca nową aktualizację w HTML
+function createUpdateElement(content) {
+    const updateContainer = document.createElement('li');
+    updateContainer.classList.add('update');
+
+    const textContainer = document.createElement('div');
+    textContainer.classList.add('update-content');
+    textContainer.textContent = content;
+
+    const deleteContainer = document.createElement('div');
+    deleteContainer.classList.add('delete-container');
+
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('delete-button');
+    deleteButton.textContent = 'Usuń';
+    deleteButton.onclick = function() {
+        // Dodaj tutaj obsługę usuwania aktualizacji z bazy danych, jeśli jest potrzebna
+        // Po usunięciu z bazy danych, usuń również updateContainer
+        updateContainer.remove();
+    };
+
+    deleteContainer.appendChild(deleteButton);
+    updateContainer.appendChild(textContainer);
+    updateContainer.appendChild(deleteContainer);
+
+    document.getElementById('updates-list').appendChild(updateContainer);
+}
