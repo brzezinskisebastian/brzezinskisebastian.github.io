@@ -12,54 +12,58 @@ h1 {
 }
 
 #updates-list {   
-    max-width: 600px; /* Zwiększenie maksymalnej szerokości do 600px dla spójności */
+    max-width: 500px; /* Zwiększenie maksymalnej szerokości do 600px dla spójności */
     margin: 20px auto;
     padding: 0;
     list-style-type: none;
 }
 
 .update {
-    max-width: 600px; /* Zwiększenie maksymalnej szerokości do 600px dla spójności */
+    max-width: 500px; /* Zwiększenie maksymalnej szerokości do 600px dla spójności */
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
 }
 
+
 form {
-    max-width: 600px; /* Zwiększenie maksymalnej szerokości do 600px dla spójności */
+    max-width: 500px;
     margin: 20px auto;
     padding: 20px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    display: flex; /* Ustawienie formularza jako kontenera flexbox */
+    flex-direction: column; /* Ustawienie kierunku na kolumnę */
+    align-items: center; 
+    
 }
 
-label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 14px; /* Dopasowanie wielkości czcionki do górnego stylu */
-}
+
 
 input[type="text"],
 textarea {
-    width: 100%;
+    width: calc(100% - 20px); /* Szerokość textarea, odjęte 20px od 100% dla marginesu */
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 8px; /* Zmniejszenie wypełnienia dla lepszego dopasowania */
-    font-size: 13px; /* Dopasowanie wielkości czcionki do górnego stylu */
+    padding: 8px;
+    font-size: 13px;
+    margin-bottom: 10px;
+    resize: vertical;
 }
 
 button {
-    background-color: transparent; /* Ustawienie tła na transparentne */
-    color: #333; /* Zmiana koloru tekstu na ciemniejszy odcień */
+    background-color: transparent;
+    color: #333;
     padding: 10px 20px;
-    border: 1px solid #ccc; /* Dodanie obramowania */
+    border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%; /* Pełna szerokość przycisku */
-    font-size: 13px; /* Dopasowanie wielkości czcionki do górnego stylu */
+    width: 100%;
+    font-size: 13px;
+    display: block; /* Ustawienie na blok, aby były jedno pod drugim */
+    margin-bottom: 10px; /* Dodanie marginesu na dół dla odstępu między elementami */
 }
-
 button:hover {
     background-color: #f0f0f0; /* Lekko jasniejsze tło po najechaniu myszą */
 }
