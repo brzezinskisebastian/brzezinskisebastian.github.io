@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administracyjny - Bajki na Dobranoc</title>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"></script>
+    <script src="firebase-config.js" defer></script>
+    <script src="firebase-script.js" defer></script>
+</head>
+<body>
+    <h1>Panel Administracyjny</h1>
+    <form id="book-form">
+        <h2>Dodaj Książkę</h2>
+        <label for="title">Tytuł:</label>
+        <input type="text" id="title" required><br>
+        <label for="description">Opis:</label>
+        <textarea id="description" required></textarea><br>
+        <label for="imageUrl">URL Obrazka:</label>
+        <input type="text" id="imageUrl" required><br>
+        <label for="audioUrl">URL Audio:</label>
+        <input type="text" id="audioUrl" required><br>
+        <label for="bookUrl">URL Pliku z Bajką:</label>
+        <input type="text" id="bookUrl" required><br>
+        <label for="duration">Czas Trwania (minuty):</label>
+        <input type="number" id="duration" required><br>
+        <label for="popularity">Popularność:</label>
+        <input type="number" id="popularity" required><br>
+        <label for="rating">Ocena (0-5):</label>
+        <input type="number" id="rating" step="0.1" min="0" max="5" required><br>
+        <button type="submit">Dodaj Książkę</button>
+    </form>
+
+    <h2>Lista Książek</h2>
+    <table id="books-table" border="1">
+        <thead>
+            <tr>
+                <th>Tytuł</th>
+                <th>Opis</th>
+                <th>Obrazek</th>
+                <th>Audio</th>
+                <th>Książka</th>
+                <th>Czas Trwania</th>
+                <th>Popularność</th>
+                <th>Ocena</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+</html>
