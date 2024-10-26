@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chmura Xcloud</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      color: #343a40;
+    }
+    #fileList {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px; /* Odstępy między kontenerami */
+    }
+    .file-container {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 200px; /* Szerokość kontenera */
+      text-align: center;
+    }
+    input[type="file"] {
+      margin-bottom: 10px;
+    }
+    button {
+      margin: 5px 0;
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    a {
+      display: block;
+      margin: 5px 0;
+      color: #007bff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    img {
+      max-width: 100%; /* Aby miniatury nie wychodziły poza kontener */
+      border-radius: 5px; /* Zaokrąglone rogi obrazka */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Formularz do dodawania plików -->
+  <h2>Dodaj plik do chmury</h2>
+  <input type="file" id="fileInput">
+  <button onclick="uploadFile()">Prześlij</button>
+
+  <!-- Sekcja do listowania i pobierania plików -->
+  <h2>Pliki w chmurze</h2>
+  <div id="fileList">Ładowanie plików...</div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+  <script>
+    // Konfiguracja Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyCcjh0x1odmhcz3L-w7pKhlSOzKEsZc-F4",
+      authDomain: "xcloud-5fea9.firebaseapp.com",
+      projectId: "xcloud-5fea9",
+      storageBucket: "xcloud-5fea9.appspot.com",
+      messagingSenderId: "861473091667",
+      appId: "1:861473091667:web:c28c9a8fc222292b0696a6",
+      measurementId: "G-RD7YG67QV9"
+    };
+
+    // Inicjalizacja Firebase
+    firebase.initializeApp(firebaseConfig);
+    const storage = firebase.storage();
+
+    // Funkcja do przesyłania pliku
+    async function uploadFile() {
+      const fileInput = document.getElementById('fileInput');
+      const file = fileInput.files[0];
+      if (!file) return alert("Wybierz plik!");
+
+      const fileRef = storage.ref(file.name); // Tworzenie referencji do pliku
+      try {
+        await fileRef.put(file);
+        alert("Plik przesłany pomyślnie!");
+        fileInput.value = ''; // Czyść pole po przesłaniu
+        listFiles();  // Odśwież listę plików
+      } catch (error) {
+        console.error("Błąd podczas przesyłania:", error);
+      }
+    }
+
+    // Funkcja do listowania i pobierania plików
+    async function listFiles() {
+      const listRef = storage.ref(); // Pobierz wszystkie pliki
+      const fileListDiv = document.getElementById('fileList');
+      fileListDiv.innerHTML = ''; // Wyczyść istniejącą listę
+
+      try {
+        const res = await listRef.listAll(); // Pobierz wszystkie pliki
+        console.log("Pliki w storage:", res.items); // Logowanie plików
+        if (res.items.length === 0) {
+          fileListDiv.innerHTML = "Brak plików w chmurze.";
+          return; // Zatrzymaj dalsze przetwarzanie
+        }
+        
+        res.items.forEach(async (itemRef) => {
+          const url = await itemRef.getDownloadURL(); // Pobierz URL pliku
+
+          // Tworzenie kontenera dla pliku
+          const container = document.createElement('div');
+          container.className = 'file-container';
+
+          // Sprawdzenie czy to obrazek
+          const isImage = url.match(/\.(jpeg|jpg|gif|png)$/i);
+          if (isImage) {
+            const img = document.createElement('img');
+            img.src = url;
+            container.appendChild(img); // Dodanie miniatury do kontenera
+          }
+
+          const link = document.createElement('a');
+          link.href = url;
+          link.textContent = itemRef.name;
+          link.target = "_blank";
+
+          // Przycisk do usuwania pliku
+          const deleteButton = document.createElement('button');
+          deleteButton.textContent = "Usuń";
+          deleteButton.onclick = () => deleteFile(itemRef.name); // Ustawienie funkcji usuwania
+
+          container.appendChild(link);
+          container.appendChild(deleteButton);
+          fileListDiv.appendChild(container);
+        });
+      } catch (error) {
+        console.error("Błąd podczas listowania plików:", error);
+        fileListDiv.innerHTML = "Wystąpił błąd podczas ładowania plików.";
+      }
+    }
+
+    // Funkcja do usuwania pliku
+    async function deleteFile(fileName) {
+      const fileRef = storage.ref(fileName); // Tworzenie referencji do pliku
+      try {
+        await fileRef.delete(); // Usunięcie pliku
+        alert("Plik usunięty pomyślnie!");
+        listFiles(); // Odśwież listę plików
+      } catch (error) {
+        console.error("Błąd podczas usuwania pliku:", error);
+      }
+    }
+
+    // Wyświetl listę plików po załadowaniu strony
+    window.onload = listFiles;
+  </script>
+
+</body>
+</html>
