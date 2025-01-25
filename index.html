@@ -5,87 +5,114 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chmura Xcloud</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px auto;
-      padding: 20px;
-      max-width: 800px;
-      background-color: #f8f9fa;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    h2 {
-      color: #343a40;
-    }
-    #folderList {
-      margin-top: 20px;
-    }
-    .folder {
-      margin: 10px 0;
-      padding: 10px;
-      position: relative;
-      transition: background-color 0.3s;
-    }
-    .folder.dragover {
-      background-color: #e6f7ff;
-    }
-    .file-container {
-      margin-top: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .file {
-      background-color: #ffffff;
-      border-radius: 8px;
-      padding: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: clamp(0.8rem, 2.5vw, 1rem);
-      width: 100%;
-    }
-    input[type="file"], input[type="text"] {
-      width: 30%;
-      padding: 10px;
-      margin: 5px 0;
-      border: 1px solid #ced4da;
-      border-radius: 5px;
-      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-      transition: border-color 0.3s;
-    }
-    input[type="file"]:focus, input[type="text"]:focus {
-      border-color: #007bff;
-      outline: none;
-    }
-    button {
-      margin: 5px;
-      padding: 10px 15px;
-      background-color: #ff8c00;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #e67600;
-    }
-    a {
-      color: #343a40;
-      text-decoration: none;
-      font-size: clamp(0.8rem, 2.5vw, 1rem);
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    img {
-      max-width: 100%;
-      border-radius: 5px;
-    }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 800px;
+  width: 90%;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h2 {
+  color: #343a40;
+}
+
+#folderList {
+  margin-top: 20px;
+}
+
+.folder {
+  padding: 10px;
+  position: relative;
+  transition: background-color 0.3s;
+  text-align: center;
+  border: 1px dashed #ced4da;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.folder.dragover {
+  background-color: #e9ecef;
+}
+
+.file-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.file {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+input[type="file"], input[type="text"] {
+  width: 40%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s;
+}
+
+input[type="file"]:focus, input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 5px;
+}
+
+button:hover {
+  background-color: #e67600;
+}
+
+button.delete {
+  background-color: #dc3545;
+}
+
+button.delete:hover {
+  background-color: #c82333;
+}
+
+a {
+  color: #343a40;
+  text-decoration: none;
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 5px;
+}
   </style>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2231403600318404"
-  crossorigin="anonymous"></script>
 </head>
 <body>
   <h2>Dodaj nowy folder</h2>
@@ -95,13 +122,11 @@
   <h2>Foldery w chmurze</h2>
   <div id="folderList">Ładowanie folderów...</div>
 
-  <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
   <script>
-    // Konfiguracja Firebase
     const firebaseConfig = {
       apiKey: "AIzaSyCcjh0x1odmhcz3L-w7pKhlSOzKEsZc-F4",
       authDomain: "xcloud-5fea9.firebaseapp.com",
@@ -113,14 +138,12 @@
       measurementId: "G-RD7YG67QV9"
     };
 
-    // Inicjalizacja Firebase
     firebase.initializeApp(firebaseConfig);
     const storage = firebase.storage();
     const database = firebase.database();
 
-    const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
+    const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
-    // Funkcja do tworzenia nowego folderu
     function createFolder() {
       const folderName = document.getElementById('folderInput').value.trim();
       if (!folderName) return alert("Podaj nazwę folderu!");
@@ -135,7 +158,6 @@
       });
     }
 
-    // Funkcja do listowania folderów
     function listFolders() {
       const folderListDiv = document.getElementById('folderList');
       folderListDiv.innerHTML = 'Ładowanie folderów...';
@@ -152,10 +174,7 @@
         Object.keys(folders).forEach(folderName => {
           const folderDiv = document.createElement('div');
           folderDiv.className = 'folder';
-          folderDiv.innerHTML = `<h3>${folderName} <button onclick="promptToDeleteFolder('${folderName}')">Usuń folder</button></h3>
-            <input type="file" id="fileInput-${folderName}" accept="image/*,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain">
-            <button onclick="uploadFile('${folderName}')">Prześlij plik</button>
-            <div class="file-container" id="fileList-${folderName}">Ładowanie plików...</div>`;
+          folderDiv.setAttribute('draggable', true);
 
           folderDiv.addEventListener('dragover', (e) => {
             e.preventDefault();
@@ -175,6 +194,14 @@
             }
           });
 
+          folderDiv.innerHTML = `<h3>${folderName}
+            <button class="delete" onclick="promptToDeleteFolder('${folderName}')">Usuń folder</button>
+            <button onclick="renameFolder('${folderName}')">Zmień nazwę</button>
+          </h3>
+            <input type="file" id="fileInput-${folderName}" accept="image/*,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain">
+            <button onclick="uploadFile('${folderName}')">Prześlij plik</button>
+            <div class="file-container" id="fileList-${folderName}">Ładowanie plików...</div>`;
+
           folderListDiv.appendChild(folderDiv);
           listFiles(folderName);
         });
@@ -183,32 +210,86 @@
       });
     }
 
-    // Funkcja do przesyłania przeciągniętych plików do konkretnego folderu
     async function uploadDroppedFiles(folderName, files) {
       for (let file of files) {
         if (file.size > MAX_FILE_SIZE) {
           alert("Plik jest zbyt duży! Maksymalny rozmiar to 10 MB.");
           continue;
         }
-        if (!file.type.startsWith('video/')) {
-          const fileRef = storage.ref(`${folderName}/${file.name}`);
-          try {
-            await fileRef.put(file);
-          } catch (error) {
-            console.error("Błąd podczas przesyłania pliku:", error);
-          }
+
+        const fileRef = storage.ref(`${folderName}/${file.name}`);
+        try {
+          await fileRef.put(file);
+        } catch (error) {
+          console.error("Błąd podczas przesyłania pliku:", error);
         }
       }
       listFiles(folderName);
     }
 
-    // Funkcja do przesyłania plików do konkretnego folderu
+    function renameFolder(folderName) {
+      const newName = prompt("Podaj nową nazwę folderu:", folderName);
+      if (!newName || newName.trim() === folderName) return;
+
+      database.ref('folders/' + folderName).once('value').then(snapshot => {
+        const folderData = snapshot.val();
+
+        if (!folderData) return alert("Folder nie istnieje!");
+
+        const folderRef = storage.ref(folderName);
+        const newFolderRef = storage.ref(newName);
+
+        folderRef.listAll().then(async res => {
+          for (let item of res.items) {
+            const fileName = item.name;
+            const newFileRef = newFolderRef.child(fileName);
+            const url = await item.getDownloadURL();
+            const response = await fetch(url);
+            const blob = await response.blob();
+            await newFileRef.put(blob);
+            await item.delete();
+          }
+
+          await database.ref('folders/' + newName).set(folderData);
+          await database.ref('folders/' + folderName).remove();
+
+          listFolders();
+        }).catch(err => {
+          console.error("Błąd podczas zmiany nazwy plików w storage:", err);
+        });
+      }).catch(err => {
+        console.error("Błąd podczas zmiany nazwy folderu:", err);
+      });
+    }
+
+    function promptToDeleteFolder(folderName) {
+      const password = prompt("Podaj hasło, aby usunąć folder:");
+      if (password === "sggw2024") {
+        deleteFolder(folderName);
+      } else {
+        alert("Niepoprawne hasło!");
+      }
+    }
+
+    async function deleteFolder(folderName) {
+      try {
+        await database.ref('folders/' + folderName).remove();
+        const folderRef = storage.ref(folderName);
+        const res = await folderRef.listAll();
+        for (let item of res.items) {
+          await item.delete();
+        }
+        listFolders();
+      } catch (error) {
+        console.error("Błąd podczas usuwania folderu:", error);
+      }
+    }
+
     async function uploadFile(folderName) {
       const fileInput = document.getElementById(`fileInput-${folderName}`);
       const file = fileInput.files[0];
       if (!file) return alert("Wybierz plik!");
       if (file.size > MAX_FILE_SIZE) return alert("Plik jest zbyt duży! Maksymalny rozmiar to 10 MB.");
-      if (file.type.startsWith('video/')) return alert("Przesyłanie filmów jest niedozwolone!");
 
       const fileRef = storage.ref(`${folderName}/${file.name}`);
       try {
@@ -220,7 +301,6 @@
       }
     }
 
-    // Funkcja do listowania plików w folderze
     async function listFiles(folderName) {
       const fileListDiv = document.getElementById(`fileList-${folderName}`);
       fileListDiv.innerHTML = 'Ładowanie plików...';
@@ -241,13 +321,6 @@
           const fileDiv = document.createElement('div');
           fileDiv.className = 'file';
 
-          const isImage = url.match(/\.(jpeg|jpg|gif|png)$/i);
-          if (isImage) {
-            const img = document.createElement('img');
-            img.src = url;
-            fileDiv.appendChild(img);
-          }
-
           const link = document.createElement('a');
           link.href = url;
           link.textContent = itemRef.name;
@@ -255,6 +328,7 @@
 
           const deleteButton = document.createElement('button');
           deleteButton.textContent = 'Usuń';
+          deleteButton.className = 'delete';
           deleteButton.onclick = () => {
             if (confirm("Czy na pewno chcesz usunąć ten plik?")) {
               deleteFile(folderName, itemRef.name);
@@ -271,7 +345,6 @@
       }
     }
 
-    // Funkcja do usuwania plików z folderu
     async function deleteFile(folderName, fileName) {
       const fileRef = storage.ref(`${folderName}/${fileName}`);
       try {
@@ -282,32 +355,6 @@
       }
     }
 
-    // Funkcja do potwierdzenia usunięcia folderu
-    function promptToDeleteFolder(folderName) {
-      const password = prompt("Podaj hasło, aby usunąć folder:");
-      if (password === "sggw2024") {
-        deleteFolder(folderName);
-      } else {
-        alert("Niepoprawne hasło!");
-      }
-    }
-
-    // Funkcja do usuwania folderu
-    async function deleteFolder(folderName) {
-      try {
-        await database.ref('folders/' + folderName).remove();
-        const folderRef = storage.ref(folderName);
-        const res = await folderRef.listAll();
-        for (let item of res.items) {
-          await item.delete();
-        }
-        listFolders();
-      } catch (error) {
-        console.error("Błąd podczas usuwania folderu:", error);
-      }
-    }
-
-    // Wyświetl foldery po załadowaniu strony
     window.onload = listFolders;
   </script>
 </body>
