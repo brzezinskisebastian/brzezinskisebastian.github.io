@@ -16,70 +16,93 @@
     h2 {
       color: #343a40;
     }
-    #fileList {
+    #folderList {
       margin-top: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px; /* Odstępy między kontenerami */
+    }
+    .folder {
+      margin: 10px 0;
+      padding: 10px;
+      position: relative;
+      transition: background-color 0.3s;
+    }
+    .folder.dragover {
+      background-color: #e6f7ff;
     }
     .file-container {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .file {
       background-color: #ffffff;
       border-radius: 8px;
       padding: 10px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      width: 200px; /* Szerokość kontenera */
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: clamp(0.8rem, 2.5vw, 1rem);
+      width: 100%;
     }
-    input[type="file"] {
-      margin-bottom: 10px;
+    input[type="file"], input[type="text"] {
+      width: 30%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      transition: border-color 0.3s;
+    }
+    input[type="file"]:focus, input[type="text"]:focus {
+      border-color: #007bff;
+      outline: none;
     }
     button {
-      margin: 5px 0;
+      margin: 5px;
       padding: 10px 15px;
-      background-color: #007bff;
+      background-color: #ff8c00;
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
     button:hover {
-      background-color: #0056b3;
+      background-color: #e67600;
     }
     a {
-      display: block;
-      margin: 5px 0;
-      color: #007bff;
+      color: #343a40;
       text-decoration: none;
+      font-size: clamp(0.8rem, 2.5vw, 1rem);
     }
     a:hover {
       text-decoration: underline;
     }
     img {
-      max-width: 100%; /* Aby miniatury nie wychodziły poza kontener */
-      border-radius: 5px; /* Zaokrąglone rogi obrazka */
+      max-width: 100%;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
+  <h2>Dodaj nowy folder</h2>
+  <input type="text" id="folderInput" placeholder="Nazwa folderu">
+  <button onclick="createFolder()">Utwórz folder</button>
 
-  <!-- Formularz do dodawania plików -->
-  <h2>Dodaj plik do chmury</h2>
-  <input type="file" id="fileInput">
-  <button onclick="uploadFile()">Prześlij</button>
-
-  <!-- Sekcja do listowania i pobierania plików -->
-  <h2>Pliki w chmurze</h2>
-  <div id="fileList">Ładowanie plików...</div>
+  <h2>Foldery w chmurze</h2>
+  <div id="folderList">Ładowanie folderów...</div>
 
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
   <script>
     // Konfiguracja Firebase
     const firebaseConfig = {
       apiKey: "AIzaSyCcjh0x1odmhcz3L-w7pKhlSOzKEsZc-F4",
       authDomain: "xcloud-5fea9.firebaseapp.com",
+      databaseURL: "https://xcloud-5fea9-default-rtdb.firebaseio.com/",
       projectId: "xcloud-5fea9",
       storageBucket: "xcloud-5fea9.appspot.com",
       messagingSenderId: "861473091667",
@@ -90,88 +113,199 @@
     // Inicjalizacja Firebase
     firebase.initializeApp(firebaseConfig);
     const storage = firebase.storage();
+    const database = firebase.database();
 
-    // Funkcja do przesyłania pliku
-    async function uploadFile() {
-      const fileInput = document.getElementById('fileInput');
+    const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
+
+    // Funkcja do tworzenia nowego folderu
+    function createFolder() {
+      const folderName = document.getElementById('folderInput').value.trim();
+      if (!folderName) return alert("Podaj nazwę folderu!");
+
+      database.ref('folders/' + folderName).set({
+        createdAt: new Date().toISOString()
+      }).then(() => {
+        document.getElementById('folderInput').value = '';
+        listFolders();
+      }).catch(error => {
+        console.error("Błąd przy tworzeniu folderu:", error);
+      });
+    }
+
+    // Funkcja do listowania folderów
+    function listFolders() {
+      const folderListDiv = document.getElementById('folderList');
+      folderListDiv.innerHTML = 'Ładowanie folderów...';
+
+      database.ref('folders').once('value').then(snapshot => {
+        const folders = snapshot.val();
+        folderListDiv.innerHTML = '';
+
+        if (!folders) {
+          folderListDiv.innerHTML = 'Brak folderów w chmurze.';
+          return;
+        }
+
+        Object.keys(folders).forEach(folderName => {
+          const folderDiv = document.createElement('div');
+          folderDiv.className = 'folder';
+          folderDiv.innerHTML = `<h3>${folderName} <button onclick="promptToDeleteFolder('${folderName}')">Usuń folder</button></h3>
+            <input type="file" id="fileInput-${folderName}" accept="image/*,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain">
+            <button onclick="uploadFile('${folderName}')">Prześlij plik</button>
+            <div class="file-container" id="fileList-${folderName}">Ładowanie plików...</div>`;
+
+          folderDiv.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            folderDiv.classList.add('dragover');
+          });
+
+          folderDiv.addEventListener('dragleave', () => {
+            folderDiv.classList.remove('dragover');
+          });
+
+          folderDiv.addEventListener('drop', (e) => {
+            e.preventDefault();
+            folderDiv.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length) {
+              uploadDroppedFiles(folderName, files);
+            }
+          });
+
+          folderListDiv.appendChild(folderDiv);
+          listFiles(folderName);
+        });
+      }).catch(error => {
+        console.error("Błąd przy ładowaniu folderów:", error);
+      });
+    }
+
+    // Funkcja do przesyłania przeciągniętych plików do konkretnego folderu
+    async function uploadDroppedFiles(folderName, files) {
+      for (let file of files) {
+        if (file.size > MAX_FILE_SIZE) {
+          alert("Plik jest zbyt duży! Maksymalny rozmiar to 10 MB.");
+          continue;
+        }
+        if (!file.type.startsWith('video/')) {
+          const fileRef = storage.ref(`${folderName}/${file.name}`);
+          try {
+            await fileRef.put(file);
+          } catch (error) {
+            console.error("Błąd podczas przesyłania pliku:", error);
+          }
+        }
+      }
+      listFiles(folderName);
+    }
+
+    // Funkcja do przesyłania plików do konkretnego folderu
+    async function uploadFile(folderName) {
+      const fileInput = document.getElementById(`fileInput-${folderName}`);
       const file = fileInput.files[0];
       if (!file) return alert("Wybierz plik!");
+      if (file.size > MAX_FILE_SIZE) return alert("Plik jest zbyt duży! Maksymalny rozmiar to 10 MB.");
+      if (file.type.startsWith('video/')) return alert("Przesyłanie filmów jest niedozwolone!");
 
-      const fileRef = storage.ref(file.name); // Tworzenie referencji do pliku
+      const fileRef = storage.ref(`${folderName}/${file.name}`);
       try {
         await fileRef.put(file);
-        alert("Plik przesłany pomyślnie!");
-        fileInput.value = ''; // Czyść pole po przesłaniu
-        listFiles();  // Odśwież listę plików
+        fileInput.value = '';
+        listFiles(folderName);
       } catch (error) {
-        console.error("Błąd podczas przesyłania:", error);
+        console.error("Błąd podczas przesyłania pliku:", error);
       }
     }
 
-    // Funkcja do listowania i pobierania plików
-    async function listFiles() {
-      const listRef = storage.ref(); // Pobierz wszystkie pliki
-      const fileListDiv = document.getElementById('fileList');
-      fileListDiv.innerHTML = ''; // Wyczyść istniejącą listę
+    // Funkcja do listowania plików w folderze
+    async function listFiles(folderName) {
+      const fileListDiv = document.getElementById(`fileList-${folderName}`);
+      fileListDiv.innerHTML = 'Ładowanie plików...';
 
+      const folderRef = storage.ref(folderName);
       try {
-        const res = await listRef.listAll(); // Pobierz wszystkie pliki
-        console.log("Pliki w storage:", res.items); // Logowanie plików
+        const res = await folderRef.listAll();
+        fileListDiv.innerHTML = '';
+
         if (res.items.length === 0) {
-          fileListDiv.innerHTML = "Brak plików w chmurze.";
-          return; // Zatrzymaj dalsze przetwarzanie
+          fileListDiv.innerHTML = 'Brak plików w folderze.';
+          return;
         }
-        
-        res.items.forEach(async (itemRef) => {
-          const url = await itemRef.getDownloadURL(); // Pobierz URL pliku
 
-          // Tworzenie kontenera dla pliku
-          const container = document.createElement('div');
-          container.className = 'file-container';
+        res.items.forEach(async itemRef => {
+          const url = await itemRef.getDownloadURL();
 
-          // Sprawdzenie czy to obrazek
+          const fileDiv = document.createElement('div');
+          fileDiv.className = 'file';
+
           const isImage = url.match(/\.(jpeg|jpg|gif|png)$/i);
           if (isImage) {
             const img = document.createElement('img');
             img.src = url;
-            container.appendChild(img); // Dodanie miniatury do kontenera
+            fileDiv.appendChild(img);
           }
 
           const link = document.createElement('a');
           link.href = url;
           link.textContent = itemRef.name;
-          link.target = "_blank";
+          link.target = '_blank';
 
-          // Przycisk do usuwania pliku
           const deleteButton = document.createElement('button');
-          deleteButton.textContent = "Usuń";
-          deleteButton.onclick = () => deleteFile(itemRef.name); // Ustawienie funkcji usuwania
+          deleteButton.textContent = 'Usuń';
+          deleteButton.onclick = () => {
+            if (confirm("Czy na pewno chcesz usunąć ten plik?")) {
+              deleteFile(folderName, itemRef.name);
+            }
+          };
 
-          container.appendChild(link);
-          container.appendChild(deleteButton);
-          fileListDiv.appendChild(container);
+          fileDiv.appendChild(link);
+          fileDiv.appendChild(deleteButton);
+          fileListDiv.appendChild(fileDiv);
         });
       } catch (error) {
-        console.error("Błąd podczas listowania plików:", error);
-        fileListDiv.innerHTML = "Wystąpił błąd podczas ładowania plików.";
+        console.error("Błąd podczas ładowania plików:", error);
+        fileListDiv.innerHTML = 'Wystąpił błąd podczas ładowania plików.';
       }
     }
 
-    // Funkcja do usuwania pliku
-    async function deleteFile(fileName) {
-      const fileRef = storage.ref(fileName); // Tworzenie referencji do pliku
+    // Funkcja do usuwania plików z folderu
+    async function deleteFile(folderName, fileName) {
+      const fileRef = storage.ref(`${folderName}/${fileName}`);
       try {
-        await fileRef.delete(); // Usunięcie pliku
-        alert("Plik usunięty pomyślnie!");
-        listFiles(); // Odśwież listę plików
+        await fileRef.delete();
+        listFiles(folderName);
       } catch (error) {
         console.error("Błąd podczas usuwania pliku:", error);
       }
     }
 
-    // Wyświetl listę plików po załadowaniu strony
-    window.onload = listFiles;
-  </script>
+    // Funkcja do potwierdzenia usunięcia folderu
+    function promptToDeleteFolder(folderName) {
+      const password = prompt("Podaj hasło, aby usunąć folder:");
+      if (password === "sggw2024") {
+        deleteFolder(folderName);
+      } else {
+        alert("Niepoprawne hasło!");
+      }
+    }
 
+    // Funkcja do usuwania folderu
+    async function deleteFolder(folderName) {
+      try {
+        await database.ref('folders/' + folderName).remove();
+        const folderRef = storage.ref(folderName);
+        const res = await folderRef.listAll();
+        for (let item of res.items) {
+          await item.delete();
+        }
+        listFolders();
+      } catch (error) {
+        console.error("Błąd podczas usuwania folderu:", error);
+      }
+    }
+
+    // Wyświetl foldery po załadowaniu strony
+    window.onload = listFolders;
+  </script>
 </body>
 </html>
