@@ -5,113 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chmura Xcloud</title>
   <style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0 auto;
-  padding: 20px;
-  max-width: 800px;
-  width: 90%;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-h2 {
-  color: #343a40;
-}
-
-#folderList {
-  margin-top: 20px;
-}
-
-.folder {
-  padding: 10px;
-  position: relative;
-  transition: background-color 0.3s;
-  text-align: center;
-  border: 1px dashed #ced4da;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.folder.dragover {
-  background-color: #e9ecef;
-}
-
-.file-container {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-}
-
-.file {
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: clamp(0.8rem, 2.5vw, 1rem);
-  width: 90%;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-input[type="file"], input[type="text"] {
-  width: 40%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ced4da;
-  border-radius: 5px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  transition: border-color 0.3s;
-}
-
-input[type="file"]:focus, input[type="text"]:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-button {
-  padding: 10px 15px;
-  background-color: #ff8c00;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 10px 5px;
-}
-
-button:hover {
-  background-color: #e67600;
-}
-
-button.delete {
-  background-color: #dc3545;
-}
-
-button.delete:hover {
-  background-color: #c82333;
-}
-
-a {
-  color: #343a40;
-  text-decoration: none;
-  font-size: clamp(0.8rem, 2.5vw, 1rem);
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-img {
-  max-width: 100%;
-  border-radius: 5px;
-}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0 auto;
+      padding: 20px;
+      max-width: 800px;
+      width: 90%;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    h2 {
+      color: #343a40;
+    }
+    
+    #folderList, #textList {
+      margin-top: 20px;
+    }
+    
+    .folder {
+      padding: 10px;
+      position: relative;
+      transition: background-color 0.3s;
+      text-align: center;
+      border: 1px dashed #ced4da;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .folder.dragover {
+      background-color: #e9ecef;
+    }
+    
+    .file-container {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+    
+    .file {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: clamp(0.8rem, 2.5vw, 1rem);
+      width: 90%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    input[type="file"], input[type="text"], textarea {
+      width: 40%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      transition: border-color 0.3s;
+    }
+    
+    textarea {
+      width: 90%;
+      max-width: 600px;
+      resize: vertical;
+    }
+    
+    input[type="file"]:focus, input[type="text"]:focus, textarea:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+    
+    button {
+      padding: 10px 15px;
+      background-color: #ff8c00;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px 5px;
+    }
+    
+    button:hover {
+      background-color: #e67600;
+    }
+    
+    button.delete {
+      background-color: #dc3545;
+    }
+    
+    button.delete:hover {
+      background-color: #c82333;
+    }
+    
+    a {
+      color: #343a40;
+      text-decoration: none;
+      font-size: clamp(0.8rem, 2.5vw, 1rem);
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
@@ -121,6 +127,13 @@ img {
 
   <h2>Foldery w chmurze</h2>
   <div id="folderList">Ładowanie folderów...</div>
+  
+  <!-- Nowa sekcja do zamieszczania tekstów -->
+  <h2>Pola Tekstowe</h2>
+  <textarea id="textInput" placeholder="Wpisz swój tekst tutaj..." rows="5"></textarea><br>
+  <button onclick="saveText()">Zapisz tekst</button>
+  <button onclick="clearText()">Wyczyść pole</button>
+  <div id="textList">Ładowanie tekstów...</div>
 
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
@@ -355,7 +368,80 @@ img {
       }
     }
 
-    window.onload = listFolders;
+    // Funkcje obsługujące zapisywanie i usuwanie tekstów w Realtime Database
+
+    function saveText() {
+      const textValue = document.getElementById('textInput').value.trim();
+      if (!textValue) return alert("Wpisz jakiś tekst!");
+      
+      // Zapisujemy tekst z unikalnym kluczem
+      database.ref('texts').push({
+        text: textValue,
+        createdAt: new Date().toISOString()
+      }).then(() => {
+        document.getElementById('textInput').value = '';
+        listTexts();
+      }).catch(error => {
+        console.error("Błąd przy zapisie tekstu:", error);
+      });
+    }
+
+    function clearText() {
+      document.getElementById('textInput').value = '';
+    }
+
+    function listTexts() {
+      const textListDiv = document.getElementById('textList');
+      textListDiv.innerHTML = 'Ładowanie tekstów...';
+
+      database.ref('texts').once('value').then(snapshot => {
+        const texts = snapshot.val();
+        textListDiv.innerHTML = '';
+
+        Object.keys(texts).forEach(key => {
+          const textEntry = texts[key];
+          const entryDiv = document.createElement('div');
+          entryDiv.style.border = "1px solid #ced4da";
+          entryDiv.style.borderRadius = "8px";
+          entryDiv.style.padding = "10px";
+          entryDiv.style.margin = "10px auto";
+          entryDiv.style.maxWidth = "600px";
+          entryDiv.style.backgroundColor = "#fff";
+
+          const p = document.createElement('p');
+          p.textContent = textEntry.text;
+          p.style.textAlign = "left";
+
+          const deleteBtn = document.createElement('button');
+          deleteBtn.textContent = "Usuń tekst";
+          deleteBtn.className = "delete";
+          deleteBtn.onclick = () => {
+            if (confirm("Czy na pewno chcesz usunąć ten tekst?")) {
+              deleteText(key);
+            }
+          };
+
+          entryDiv.appendChild(p);
+          entryDiv.appendChild(deleteBtn);
+          textListDiv.appendChild(entryDiv);
+        });
+      }).catch(error => {
+      });
+    }
+
+    function deleteText(key) {
+      database.ref('texts/' + key).remove().then(() => {
+        listTexts();
+      }).catch(error => {
+        console.error("Błąd podczas usuwania tekstu:", error);
+      });
+    }
+
+    // Inicjalizacja przy załadowaniu strony
+    window.onload = function() {
+      listFolders();
+      listTexts();
+    };
   </script>
 </body>
 </html>
