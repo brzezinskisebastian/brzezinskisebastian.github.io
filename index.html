@@ -16,15 +16,15 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
-    
+
     h2 {
       color: #343a40;
     }
-    
+
     #folderList, #textList {
       margin-top: 20px;
     }
-    
+
     .folder {
       padding: 10px;
       position: relative;
@@ -34,11 +34,11 @@
       border-radius: 8px;
       margin-bottom: 20px;
     }
-    
+
     .folder.dragover {
       background-color: #e9ecef;
     }
-    
+
     .file-container {
       margin-top: 10px;
       display: flex;
@@ -46,7 +46,7 @@
       gap: 10px;
       align-items: center;
     }
-    
+
     .file {
       background-color: #ffffff;
       border-radius: 8px;
@@ -60,7 +60,7 @@
       max-width: 600px;
       margin: 0 auto;
     }
-    
+
     input[type="file"], input[type="text"], textarea {
       width: 40%;
       padding: 10px;
@@ -70,18 +70,18 @@
       box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
       transition: border-color 0.3s;
     }
-    
+
     textarea {
       width: 90%;
       max-width: 600px;
       resize: vertical;
     }
-    
+
     input[type="file"]:focus, input[type="text"]:focus, textarea:focus {
       border-color: #007bff;
       outline: none;
     }
-    
+
     button {
       padding: 10px 15px;
       background-color: #ff8c00;
@@ -91,55 +91,152 @@
       cursor: pointer;
       margin: 10px 5px;
     }
-    
+
     button:hover {
       background-color: #e67600;
     }
-    
+
     button.delete {
       background-color: #dc3545;
     }
-    
+
     button.delete:hover {
       background-color: #c82333;
     }
-    
+
     a {
       color: #343a40;
       text-decoration: none;
       font-size: clamp(0.8rem, 2.5vw, 1rem);
     }
-    
+
     a:hover {
       text-decoration: underline;
     }
-    
+
     img {
       max-width: 100%;
       border-radius: 5px;
     }
+
+    /* Ekran logowania PIN */
+    #loginScreen {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    #loginScreen input[type="password"] {
+      width: 50%;
+      max-width: 300px;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+      text-align: center;
+      font-size: 1.1rem;
+      letter-spacing: 0.3em;
+    }
+
+    #loginError {
+      color: #dc3545;
+      margin-top: 5px;
+      min-height: 1.2em;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
-  <h2>Dodaj nowy folder</h2>
-  <input type="text" id="folderInput" placeholder="Nazwa folderu">
-  <button onclick="createFolder()">Utwórz folder</button>
 
-  <h2>Foldery w chmurze</h2>
-  <div id="folderList">Ładowanie folderów...</div>
-  
-  <!-- Nowa sekcja do zamieszczania tekstów -->
-  <h2>Pola Tekstowe</h2>
-  <textarea id="textInput" placeholder="Wpisz swój tekst tutaj..." rows="5"></textarea><br>
-  <button onclick="saveText()">Zapisz tekst</button>
-  <button onclick="clearText()">Wyczyść pole</button>
-  <div id="textList">Ładowanie tekstów...</div>
+  <!-- EKRAN LOGOWANIA PIN -->
+  <div id="loginScreen">
+    <h2>Logowanie</h2>
+    <p>Podaj PIN, aby uzyskać dostęp do chmury.</p>
+    <input
+      type="password"
+      id="pinInput"
+      placeholder="••••"
+      inputmode="numeric"
+      maxlength="6"
+      autocomplete="off"
+    >
+    <br>
+    <button onclick="checkPin()">Zaloguj</button>
+    <div id="loginError"></div>
+  </div>
+
+  <!-- GŁÓWNA APLIKACJA (UKRYTA DO MOMENTU LOGOWANIA) -->
+  <div id="app" style="display: none;">
+    <h2>Dodaj nowy folder</h2>
+    <input type="text" id="folderInput" placeholder="Nazwa folderu">
+    <button onclick="createFolder()">Utwórz folder</button>
+
+    <h2>Foldery w chmurze</h2>
+    <div id="folderList">Ładowanie folderów...</div>
+
+    <!-- Nowa sekcja do zamieszczania tekstów -->
+    <h2>Pola Tekstowe</h2>
+    <textarea id="textInput" placeholder="Wpisz swój tekst tutaj..." rows="5"></textarea><br>
+    <button onclick="saveText()">Zapisz tekst</button>
+    <button onclick="clearText()">Wyczyść pole</button>
+    <div id="textList">Ładowanie tekstów...</div>
+  </div>
 
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
   <script>
+    // ====== KONFIGURACJA PINU ======
+    // ZMIEŃ TUTAJ NA SWÓJ PIN
+    const ACCESS_PIN = "3022";
+
+    function showApp() {
+      // chowamy ekran logowania, pokazujemy aplikację
+      document.getElementById('loginScreen').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+
+      // Ładujemy dopiero teraz foldery i teksty
+      listFolders();
+      listTexts();
+    }
+
+    function checkPin() {
+      const pinInput = document.getElementById('pinInput');
+      const errorDiv = document.getElementById('loginError');
+      const enteredPin = pinInput.value.trim();
+
+      if (!enteredPin) {
+        errorDiv.textContent = "Wpisz PIN.";
+        return;
+      }
+
+      if (enteredPin === ACCESS_PIN) {
+        errorDiv.textContent = "";
+        pinInput.value = "";
+        // można zapamiętać sesję w localStorage
+        localStorage.setItem('xcloudLoggedIn', '1');
+        showApp();
+      } else {
+        errorDiv.textContent = "Nieprawidłowy PIN.";
+        pinInput.value = "";
+        pinInput.focus();
+      }
+    }
+
+    // obsługa Enter w polu PIN
+    document.addEventListener('DOMContentLoaded', () => {
+      const pinInput = document.getElementById('pinInput');
+      if (pinInput) {
+        pinInput.addEventListener('keyup', (e) => {
+          if (e.key === 'Enter') {
+            checkPin();
+          }
+        });
+      }
+    });
+
+    // ====== FIREBASE ======
     const firebaseConfig = {
       apiKey: "AIzaSyCcjh0x1odmhcz3L-w7pKhlSOzKEsZc-F4",
       authDomain: "xcloud-5fea9.firebaseapp.com",
@@ -373,7 +470,7 @@
     function saveText() {
       const textValue = document.getElementById('textInput').value.trim();
       if (!textValue) return alert("Wpisz jakiś tekst!");
-      
+
       // Zapisujemy tekst z unikalnym kluczem
       database.ref('texts').push({
         text: textValue,
@@ -397,6 +494,11 @@
       database.ref('texts').once('value').then(snapshot => {
         const texts = snapshot.val();
         textListDiv.innerHTML = '';
+
+        if (!texts) {
+          textListDiv.innerHTML = 'Brak zapisanych tekstów.';
+          return;
+        }
 
         Object.keys(texts).forEach(key => {
           const textEntry = texts[key];
@@ -426,6 +528,7 @@
           textListDiv.appendChild(entryDiv);
         });
       }).catch(error => {
+        console.error("Błąd przy ładowaniu tekstów:", error);
       });
     }
 
@@ -437,10 +540,17 @@
       });
     }
 
-    // Inicjalizacja przy załadowaniu strony
+    // Inicjalizacja przy załadowaniu strony:
+    // jeśli użytkownik był już zalogowany w tej przeglądarce, pokazujemy od razu aplikację
     window.onload = function() {
-      listFolders();
-      listTexts();
+      const logged = localStorage.getItem('xcloudLoggedIn');
+      if (logged === '1') {
+        showApp();
+      } else {
+        // fokus na PIN
+        const pinInput = document.getElementById('pinInput');
+        if (pinInput) pinInput.focus();
+      }
     };
   </script>
 </body>
